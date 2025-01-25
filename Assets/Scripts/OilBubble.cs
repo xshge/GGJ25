@@ -5,11 +5,10 @@ using UnityEngine;
 public class OilBubble : MonoBehaviour
 {
     public int HP;
-
+    public Transform animalTransform;
     public void ShrinkOil()
     {
         HP--;
-
         transform.localScale = transform.localScale * .5f;
 
         if (HP == 0) { Destroy(gameObject); }

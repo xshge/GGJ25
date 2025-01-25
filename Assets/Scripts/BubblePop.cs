@@ -8,14 +8,29 @@ public class BubblePop : MonoBehaviour
     {
         Debug.Log("bubble collided");
 
-        if (other.gameObject.CompareTag("OilBubble"))
+        if (findComponent(other.gameObject, out OilBubble ob))
         {
-            other.gameObject.GetComponent<OilBubble>().ShrinkOil();
+            ob.ShrinkOil();
         }
 
         StartCoroutine(PopBubble());
     }
-
+    //edited by Xinyi, for finding child components;
+    bool findComponent(GameObject parent, out OilBubble _oilB)
+    {
+        bool foundChild = false;
+        OilBubble bb = null;
+        foreach (Transform child in parent.transform)
+        {
+            if (child.CompareTag("OilBubble"))
+            {
+                bb = child.GetComponent<OilBubble>();
+                foundChild = true;
+            }
+        }
+        _oilB = bb;
+        return foundChild;
+    }
     public IEnumerator PopBubble()
     {
         // some animation where the bubble pops

@@ -7,6 +7,7 @@ public class DialogueSystem : MonoBehaviour
 {
     // trigger the checkpoint event 
     public GameObject dialogueCanvas;
+    public OilBubble obbl;
     public int sizeCount = 1;
     Rigidbody2D _daisy;
     bool released = false;
@@ -19,13 +20,10 @@ public class DialogueSystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("bubble") && !released)
         {
-            sizeCount--;
+            
             //checking the sizeCount;
-            if(sizeCount <= 0)
+            if(obbl.HP <= 0)
             {   
-                //oil bubble renderer get turn off;
-                SpriteRenderer spR = GetComponent<SpriteRenderer>();
-                spR.enabled = false;
 
                 //turn rigidbody kinematic;
                 GameObject parent = collision.gameObject.transform.parent.gameObject;
