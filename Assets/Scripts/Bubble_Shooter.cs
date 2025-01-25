@@ -64,7 +64,7 @@ public class Bubble_Shooter : MonoBehaviour
         Debug.Log(bubbleDirection);
 
         //summons the bubble
-        GameObject newBubble = Instantiate(bubblePrefab, spawnerTransform.position, Quaternion.identity);
+        GameObject newBubble = Instantiate(bubblePrefab, spawnerTransform.position, Quaternion.identity, transform);
 
         //launches the bubble
         if (BubbleAimable)
