@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Bubble_Shooter : MonoBehaviour
 {
+    //TOMORROW: ADD COLLISION DETECTION ON BUBBLES, THE CLEANING MECHANIC, ETC
+
+
     //for testing purposes, whether we're having the bubble shoot straight up or based on where the player aims
     public bool BubbleAimable;
 
