@@ -426,8 +426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089f3e4187bf88847a8a8a1d5d622442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sideMoveForce: 0
-  _upwardForce: 0
+  _sideMoveForce: 5
+  _upwardForce: 10
+  isunderWater: 0
 --- !u!114 &438836845
 MonoBehaviour:
   m_ObjectHideFlags: 0
