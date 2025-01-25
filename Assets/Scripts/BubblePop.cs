@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class BubblePop : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("bubble collided");
 
-        //Once I get this working, it'll probably have a short animation where it "pops" and then the object gets destroyed
+        StartCoroutine(PopBubble());
+    }
+
+    public IEnumerator PopBubble()
+    {
+        // some animation where the bubble pops
+
+        yield return new WaitForSeconds(1f);
+
+        Destroy(gameObject);
     }
 }
