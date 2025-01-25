@@ -9,7 +9,12 @@ public class OilBubble : MonoBehaviour
     public void ShrinkOil()
     {
         HP--;
-        transform.localScale = transform.localScale * .5f;
+        Vector3 newScale = transform.localScale * .5f;
+        if (newScale.x > animalTransform.localScale.x)
+        {
+            transform.localScale = newScale;
+        }
+        
 
         if (HP == 0) { Destroy(gameObject); }
     }
