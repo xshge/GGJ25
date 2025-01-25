@@ -7,6 +7,7 @@ public class DialogueSystem : MonoBehaviour
 {
     // trigger the checkpoint event 
     public GameObject dialogueCanvas;
+    public int sizeCount = 1;
     Rigidbody2D _daisy;
     bool released = false;
     void Start()
@@ -18,15 +19,26 @@ public class DialogueSystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("bubble") && !released)
         {
-            Debug.Log("talking");
-            //turn rigidbody kinematic;
-            _daisy = collision.gameObject.GetComponentInParent<Rigidbody2D>();
-            if( _daisy != null ) _daisy.bodyType = RigidbodyType2D.Kinematic;
-            //start Coroutine:
-            //mkae the texbox appear;
-            //trigger aniamtion;
-            //trigger checkpoint;
-            StartCoroutine(TextBoxDialogue());
+            sizeCount--;
+            //checking the sizeCount;
+            if(sizeCount <= 0)
+            {   
+                //oil bubble renderer get turn off;
+                SpriteRenderer spR = GetComponent<SpriteRenderer>();
+                spR.enabled = false;
+
+                //turn rigidbody kinematic;
+                GameObject parent = collision.gameObject.transform.parent.gameObject;
+                _daisy = parent.GetComponent<Rigidbody2D>();
+                //Debug.Log(collision.gameObject.transform.parent);
+                if( _daisy != null ) _daisy.bodyType = RigidbodyType2D.Static;
+                //start Coroutine:
+                //mkae the texbox appear;
+                //trigger aniamtion;
+                //trigger checkpoint;
+                StartCoroutine(TextBoxDialogue());
+            }
+          
         }
     }
     IEnumerator TextBoxDialogue()
