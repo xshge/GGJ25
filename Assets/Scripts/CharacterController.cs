@@ -20,27 +20,25 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         if (_pRB != null)
-        {
+        {   
+            //calculate vector and updating it.
             MoveVector = new Vector2(Input.GetAxis("Horizontal"), 0).normalized;
            
         }
-       
+        if (Input.GetKeyDown(KeyCode.Space)) _pRB.AddForce(new Vector2(0, 1) * _upwardForce, ForceMode2D.Impulse);
+
     }
     private void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.D) ||Input.GetKey(KeyCode.A) )
             {
-            // Debug.Log(MoveVector);
+            // Debug.Log(MoveVector); all the actuall physic movement
             _pRB.velocity = MoveVector * _sideMoveForce;
             }
-        if(Input.GetKeyDown(KeyCode.Space)) _pRB.AddForce(new Vector2(0, 1) * _upwardForce, ForceMode2D.Impulse);
+        
     }
-    Vector2 calcMove()
-    {
-        Vector2 moveVector = Vector2.left * Input.GetAxis("Horizontal");
-        Debug.Log(moveVector);
-        return moveVector;
-    }
+
+    #region Redacted InputSystem code
     private void MovementInput(InputAction.CallbackContext context)
     {
         MoveVector = context.ReadValue<Vector2>();
@@ -52,4 +50,5 @@ public class CharacterController : MonoBehaviour
             _pRB.AddForce(new Vector2(0, 1) * _upwardForce, ForceMode2D.Impulse);
         }
     }
+    #endregion
 }
