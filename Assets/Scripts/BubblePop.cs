@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class BubblePop : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("bubble collided");
+
+        if (other.gameObject.CompareTag("OilBubble"))
+        {
+            other.gameObject.GetComponent<OilBubble>().ShrinkOil();
+        }
 
         StartCoroutine(PopBubble());
     }
