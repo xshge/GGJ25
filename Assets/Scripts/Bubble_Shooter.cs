@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bubble_Shooter : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Bubble_Shooter : MonoBehaviour
 
     //checking how long the button has been held
     public float timer;
+    public Slider slideCharger;
 
     // Update is called once per frame
     void Update()
@@ -43,6 +45,7 @@ public class Bubble_Shooter : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             timer += Time.deltaTime;
+            slideCharger.value = timer;
         }
     }
 
@@ -75,5 +78,6 @@ public class Bubble_Shooter : MonoBehaviour
 
         //resets timer
         timer = 0;
+        slideCharger.value = 0;
     }
 }
