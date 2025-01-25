@@ -15,7 +15,7 @@ public class DialogueSystem : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
         if (collision.gameObject.CompareTag("bubble") && !released)
         {
