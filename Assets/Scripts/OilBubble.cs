@@ -24,7 +24,11 @@ public class OilBubble : MonoBehaviour
         gameObject.GetComponent<Animator>().Play("OilBubble");
         gameObject.GetComponent<AudioSource>().Play();
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.15f);
+
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
+        yield return new WaitForSeconds(.4f);
 
         Destroy(gameObject);
     }
