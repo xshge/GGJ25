@@ -8,6 +8,7 @@ TagManager:
   - Checkpoint
   - OilBubble
   - obstacle
+  - LevelChange
   layers:
   - Default
   - TransparentFX
