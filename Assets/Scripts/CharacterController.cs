@@ -51,7 +51,9 @@ public class CharacterController : MonoBehaviour
             {
                 if (isunderWater)
                 {
-                     _pRB.velocity = MoveVector * levelChange * (_sideMoveForce/2);
+                    // _pRB.velocity = MoveVector * levelChange * (_sideMoveForce/2);
+                    _pRB.AddForce(MoveVector * levelChange * (_sideMoveForce), ForceMode2D.Force);
+                    _pRB.AddForce(Vector2.up * 5f);
                 }
                
             }
