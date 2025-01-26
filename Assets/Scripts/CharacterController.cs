@@ -7,25 +7,76 @@ public class CharacterController : MonoBehaviour
 {
     Vector2 MoveVector;
     Rigidbody2D _pRB;
-
+    float timer = 0f;
     [SerializeField] private float _sideMoveForce;
     [SerializeField] private float _upwardForce;
-
-
-
+    public bool isunderWater = false;
+    Animator _animate;
+    public SpriteRenderer daisy;
     void Start()
     {
         _pRB = GetComponent<Rigidbody2D>();
+        _animate = GetComponent<Animator>();
     }
-    void FixedUpdate()
-    {
+    void Update()
+    {   
+        timer -= Time.deltaTime;
+        
         if (_pRB != null)
-        {
-            _pRB.AddForce(MoveVector * _sideMoveForce);
+        {   
+            //calculate vector and updating it.
+            MoveVector = new Vector2(Input.GetAxis("Horizontal"), 0).normalized;
+           
         }
-       
+        if (Input.GetKeyDown(KeyCode.W) && timer <= 0f)
+        {   
+            timer = 0.75f;
+            _pRB.AddForce(new Vector2(0, 1) * _upwardForce, ForceMode2D.Impulse);
+            
+        }
+
     }
-    public void MovementInput(InputAction.CallbackContext context)
+    private void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.D) ||Input.GetKey(KeyCode.A) )
+            {
+                // Debug.Log(MoveVector); all the actuall physic movement
+                if(_pRB.bodyType == RigidbodyType2D.Dynamic)
+            {
+                if (isunderWater)
+                {
+                     _pRB.velocity = MoveVector * (_sideMoveForce/2);
+                }
+                else
+                {
+                    _pRB.velocity = MoveVector * _sideMoveForce;
+                }
+               
+            }
+               
+            }
+        
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("obstacle"))
+        {
+            StartCoroutine(Dying());
+        }
+    }
+    IEnumerator Dying()
+    {
+        //play animation;
+        _animate.SetBool("Hit", true);
+        _pRB.bodyType = RigidbodyType2D.Static;
+        yield return new WaitForSeconds(1f);
+        daisy.enabled = false;
+        yield return new WaitForSeconds(1.5f);
+        EventManager._respawn(daisy);
+        yield break;
+    }
+    #region Redacted InputSystem code
+    private void MovementInput(InputAction.CallbackContext context)
     {
         MoveVector = context.ReadValue<Vector2>();
     }
@@ -36,4 +87,5 @@ public class CharacterController : MonoBehaviour
             _pRB.AddForce(new Vector2(0, 1) * _upwardForce, ForceMode2D.Impulse);
         }
     }
+    #endregion
 }
