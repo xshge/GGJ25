@@ -5,9 +5,13 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     private Transform currentCheckpoint;
-    void SaveCheckpoint(GameObject checkpoint)
+    private void Start()
     {
-        currentCheckpoint = checkpoint.transform;
+        EventManager.saveCheckPoint += SaveCheckpoint;
+    }
+    void SaveCheckpoint(Vector3 checkpoint)
+    {
+        currentCheckpoint.position = checkpoint;
     }
 
     // called when player presses a button like "R"
