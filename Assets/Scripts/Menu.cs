@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    public void Starting()
+    {
+        StartCoroutine(StartUp());
+    }
+
+    public IEnumerator StartUp()
+    {
+        yield return new WaitForSeconds(11f);
+
+        LoadScene(1);
+    }
     public void LoadScene(int sceneNum)
     {
         SceneManager.LoadScene(sceneNum);
