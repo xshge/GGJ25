@@ -32,7 +32,11 @@ public class CharacterController : MonoBehaviour
         {   
             timer = 0.75f;
             _pRB.AddForce(new Vector2(0, 1) * _upwardForce, ForceMode2D.Impulse);
-            
+            _animate.SetBool("up", true);
+        }
+        else
+        {
+            _animate.SetBool("up", false);
         }
 
     }
@@ -53,8 +57,12 @@ public class CharacterController : MonoBehaviour
                 }
                
             }
-               
-            }
+            _animate.SetBool("moving", true);
+        }
+        else
+        {
+            _animate.SetBool("moving", false);
+        }
         
     }
     private void OnCollisionEnter2D(Collision2D collision)
