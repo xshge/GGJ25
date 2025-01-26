@@ -13,6 +13,8 @@ public class CharacterController : MonoBehaviour
     public bool isunderWater = false;
     Animator _animate;
     public SpriteRenderer daisy;
+    float levelChange = 1;
+
     void Start()
     {
         _pRB = GetComponent<Rigidbody2D>();
@@ -49,11 +51,9 @@ public class CharacterController : MonoBehaviour
             {
                 if (isunderWater)
                 {
-                     _pRB.velocity = MoveVector * (_sideMoveForce/2);
-                }
-                else
-                {
-                    _pRB.velocity = MoveVector * _sideMoveForce;
+                    // _pRB.velocity = MoveVector * levelChange * (_sideMoveForce/2);
+                    _pRB.AddForce(MoveVector * levelChange * (_sideMoveForce), ForceMode2D.Force);
+                    _pRB.AddForce(Vector2.up * 5f);
                 }
                
             }
@@ -70,6 +70,14 @@ public class CharacterController : MonoBehaviour
         if (collision.gameObject.CompareTag("obstacle"))
         {
             StartCoroutine(Dying());
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("LevelChange"))
+        {
+            levelChange += 0.25f;
+            Debug.Log("v" + _pRB.velocity);
         }
     }
     IEnumerator Dying()
