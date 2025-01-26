@@ -28,11 +28,7 @@ public class Bubble_Shooter : MonoBehaviour
     public float timer;
     public Slider slideCharger;
 
-    Animator _animate;
-    private void Start()
-    {
-        _animate = GetComponent<Animator>();
-    }
+    // Update is called once per frame
     void Update()
     {
         //tracks where the player is and where the mouse is
@@ -50,7 +46,6 @@ public class Bubble_Shooter : MonoBehaviour
         {
             timer += Time.deltaTime;
             slideCharger.value = timer;
-            _animate.SetBool("waving", true);
         }
     }
 
@@ -80,8 +75,7 @@ public class Bubble_Shooter : MonoBehaviour
         {
             newBubble.GetComponent<Rigidbody2D>().AddForce( new Vector2(0,launchForce * timer), ForceMode2D.Impulse);
         }
-        //stop animation
-        _animate.SetBool("waving", false);
+
         //resets timer
         timer = 0;
         slideCharger.value = 0;
