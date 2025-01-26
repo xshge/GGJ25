@@ -11,11 +11,12 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _sideMoveForce;
     [SerializeField] private float _upwardForce;
     public bool isunderWater = false;
-
-
+    Animator _animate;
+    public SpriteRenderer daisy;
     void Start()
     {
         _pRB = GetComponent<Rigidbody2D>();
+        _animate = GetComponent<Animator>();
     }
     void Update()
     {   
@@ -56,11 +57,24 @@ public class CharacterController : MonoBehaviour
             }
         
     }
-    void UnderWaterMove()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (collision.gameObject.CompareTag("obstacle"))
+        {
+            StartCoroutine(Dying());
+        }
     }
-
+    IEnumerator Dying()
+    {
+        //play animation;
+        _animate.SetBool("Hit", true);
+        _pRB.bodyType = RigidbodyType2D.Static;
+        yield return new WaitForSeconds(1f);
+        daisy.enabled = false;
+        yield return new WaitForSeconds(1.5f);
+        EventManager._respawn(daisy);
+        yield break;
+    }
     #region Redacted InputSystem code
     private void MovementInput(InputAction.CallbackContext context)
     {
