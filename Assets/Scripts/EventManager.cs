@@ -6,6 +6,7 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
     public static event Action<Vector3> saveCheckPoint;
+    public static event Action<SpriteRenderer> restoreCheckPoint;
     void Start()
     {
         
@@ -14,5 +15,9 @@ public class EventManager : MonoBehaviour
     public static void _saving(Vector3 animalPos)
     {
         saveCheckPoint?.Invoke(animalPos);
+    }
+    public static void _respawn(SpriteRenderer ply)
+    {
+        restoreCheckPoint?.Invoke(ply);
     }
 }
