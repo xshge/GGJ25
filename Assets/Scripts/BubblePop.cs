@@ -34,8 +34,10 @@ public class BubblePop : MonoBehaviour
     public IEnumerator PopBubble()
     {
         // some animation where the bubble pops
+        gameObject.GetComponent<Animator>().Play("bubble_pops");
+        gameObject.GetComponent<AudioSource>().Play();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
 
         Destroy(gameObject);
     }
