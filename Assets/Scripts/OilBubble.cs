@@ -16,6 +16,16 @@ public class OilBubble : MonoBehaviour
         }
         
 
-        if (HP == 0) { Destroy(gameObject); }
+        if (HP == 0) { StartCoroutine(PopOil()); }
+    }
+
+    public IEnumerator PopOil()
+    {
+        gameObject.GetComponent<Animator>().Play("OilBubble");
+        gameObject.GetComponent<AudioSource>().Play();
+
+        yield return new WaitForSeconds(.5f);
+
+        Destroy(gameObject);
     }
 }
