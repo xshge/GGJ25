@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private Transform currentCheckpoint;
-    void SaveCheckpoint(GameObject checkpoint)
+    private Vector3 currentCheckpoint;
+    Rigidbody2D rb;
+    private void Start()
     {
-        currentCheckpoint = checkpoint.transform;
+        EventManager.saveCheckPoint += SaveCheckpoint;
+        EventManager.restoreCheckPoint += ReturnToCheckpoint;
+        rb = GetComponent<Rigidbody2D>();
+        currentCheckpoint = transform.position;
+    }
+    void SaveCheckpoint(Vector3 checkpoint)
+    {
+        currentCheckpoint = checkpoint;
     }
 
     // called when player presses a button like "R"
-    void ReturnToCheckpoint()
+    void ReturnToCheckpoint(SpriteRenderer ply)
     {
-        transform.position = currentCheckpoint.position;
+        ply.enabled = true;
+        transform.position = currentCheckpoint;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+
     }
 }
