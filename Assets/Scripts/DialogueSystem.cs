@@ -44,6 +44,8 @@ public class DialogueSystem : MonoBehaviour
     }
     IEnumerator TextBoxDialogue()
     {
+        yield return new WaitForSeconds(1f);
+
         dialogueCanvas.SetActive(true);
         yield return new WaitForSeconds(2f);
         if (_daisy != null) _daisy.bodyType = RigidbodyType2D.Dynamic;
