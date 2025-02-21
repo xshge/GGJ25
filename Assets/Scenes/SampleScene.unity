@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 438836844}
   - component: {fileID: 438836845}
   - component: {fileID: 438836846}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BubbleGirl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,9 +572,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.1897492, y: -0.3214165}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.1904731
+  m_Radius: 0.31093806
 --- !u!114 &551925231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,7 +588,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 877802240}
-  Speed: 1
+  _origin: {fileID: 877802242}
+  Speed: 0.25
+  RotAngleZ: 180
+  _castLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  isActive: 0
 --- !u!1 &555303177
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +810,11 @@ Transform:
 --- !u!1 &877802240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1065180455133828681, guid: 8723a81d638b4df40b2a723fe25d92d9, type: 3}
+  m_PrefabInstance: {fileID: 6770774568820013388}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &877802242 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8662373770893989528, guid: 8723a81d638b4df40b2a723fe25d92d9, type: 3}
   m_PrefabInstance: {fileID: 6770774568820013388}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1500762929
