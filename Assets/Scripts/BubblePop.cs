@@ -37,7 +37,11 @@ public class BubblePop : MonoBehaviour
         gameObject.GetComponent<Animator>().Play("bubble_pops");
         gameObject.GetComponent<AudioSource>().Play();
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.1f);
+
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
+        yield return new WaitForSeconds(.4f);
 
         Destroy(gameObject);
     }
