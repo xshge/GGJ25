@@ -14,6 +14,8 @@ public class BasicEnemy : MonoBehaviour
     public bool isAlive;
 
     [SerializeField] private Transform _gunpoint;
+    [SerializeField] private BasicEn_States states;
+
     
     private Transform Target;
     private Coroutine LookCoroutine;
@@ -39,9 +41,9 @@ public class BasicEnemy : MonoBehaviour
             RaycastHit2D result = Physics2D.CircleCast(_origin.position, 5f, transform.right, 1f,_castLayer);
             if (result)
             {
-                Debug.Log(result.collider);
+                
                 _detectedPlayer = true;
-                isAlive= true;
+                states.ChangeState(EnState.Shooting);
                 StartRotating(result.transform);
             }
             yield return null;
@@ -95,13 +97,20 @@ public class BasicEnemy : MonoBehaviour
             yield return null;
         }
 
-        if (isAlive == true)
+        if (states.currentState == EnState.Shooting)
         {
             StartCoroutine(LookAt(plyr));
         }
 
 
        
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("bubble"))
+        {
+            states.ChangeState(EnState.Death);
+        }
     }
 
     void OnDrawGizmos()
