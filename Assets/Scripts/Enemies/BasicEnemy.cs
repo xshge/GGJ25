@@ -15,7 +15,7 @@ public class BasicEnemy : MonoBehaviour
 
     [SerializeField] private Transform _gunpoint;
     [SerializeField] private BasicEn_States states;
-
+   // [SerializeField] private Bullet bltScrpt;
     
     private Transform Target;
     private Coroutine LookCoroutine;
@@ -84,19 +84,12 @@ public class BasicEnemy : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         //instantiate bullets;
         GameObject _blt = Instantiate(_projectile, _gunpoint.position, Quaternion.identity);
+        Bullet bScript = _blt.AddComponent<Bullet>();
         //debug ray;
         Vector3 StartPos = _blt.transform.position;
         remainingDistance = Vector3.Distance(StartPos, plyr.position);
-        dist = remainingDistance;
-
-        //bullet traveling;
-        while (remainingDistance > 0f)
-        {
-            _blt.transform.position = Vector3.Lerp(StartPos, plyr.position, 1 - (remainingDistance / dist));
-            remainingDistance -= bulletSpeed * Time.deltaTime;
-            yield return null;
-        }
-
+        bScript.bulletMovement(remainingDistance,StartPos,plyr.position);
+  
         if (states.currentState == EnState.Shooting)
         {
             StartCoroutine(LookAt(plyr));
@@ -112,7 +105,10 @@ public class BasicEnemy : MonoBehaviour
             states.ChangeState(EnState.Death);
         }
     }
-
+    public void stop()
+    {
+        StopAllCoroutines();
+    }
     void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(_origin.position - transform.right * 1, 5f);

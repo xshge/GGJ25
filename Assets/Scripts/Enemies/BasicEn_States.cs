@@ -22,6 +22,8 @@ public class BasicEn_States : MonoBehaviour
         if(currentState == EnState.Death)
         {
             //trigger event manager.
+            BasicEnemy be = GetComponent<BasicEnemy>();
+            be.stop();
             //play death animation;
             gameObject.SetActive(false);
         }
