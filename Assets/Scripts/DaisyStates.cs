@@ -45,23 +45,28 @@ public class DaisyStates : MonoBehaviour
         daisyState = state;
     }
 
-    public IEnumerator ChangeBubbleState(ShieldStates state)
+    public void ShieldPopped()
     {
-        shieldState = state;
+        shieldState = ShieldStates.Popped;
+        StartCoroutine(ChangeBubbleState());
+    }
 
-        if(state == ShieldStates.Popped)
-        {
+    public IEnumerator ChangeBubbleState()
+    {
+
             shieldState = ShieldStates.Regenerating;
             shield2D.SetActive(false); // will probably also have an animation for the 2D bubble. the 3D bubble is just a collider so she can bump into walls. feel free to scale both accordingly
             shield3D.SetActive(false);
 
+            Debug.Log("popping da shield");
+
             yield return new WaitForSeconds(3);
 
-            shieldState = ShieldStates.Active;
             shield2D.SetActive(true);
-            shield3D.SetActive(true) ;
-        }
+            shield3D.SetActive(true);
+        shieldState = ShieldStates.Active;
 
-        yield return null;
+
+        Debug.Log("setting shields active");
     }
 }

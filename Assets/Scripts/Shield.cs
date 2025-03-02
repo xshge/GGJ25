@@ -8,6 +8,7 @@ public class Shield : MonoBehaviour
     public ShieldStates shieldState;
 
     public GameObject daisyBubble;
+    public GameObject daisy3D;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,19 +21,34 @@ public class Shield : MonoBehaviour
         
     }
 
+    private void FixedUpdate()
+    {
+        shieldState = daisyStates.shieldState;
+    }
+
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject != daisyBubble)
+        if (shieldState == ShieldStates.Active)
         {
-            StartCoroutine(daisyStates.ChangeBubbleState(ShieldStates.Popped));
+            if (other.gameObject != daisy3D)
+            {
+                daisyStates.ShieldPopped();
+                Debug.Log("popped 3D");
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject != daisyBubble)
+        if (shieldState == ShieldStates.Active)
         {
-            StartCoroutine(daisyStates.ChangeBubbleState(ShieldStates.Popped));
+
+            if (other.gameObject != daisyBubble)
+            {
+                daisyStates.ShieldPopped();
+
+                Debug.Log("popped 2D");
+            }
         }
     }
 }
