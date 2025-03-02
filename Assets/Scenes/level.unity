@@ -6048,6 +6048,46 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 18.02
       objectReference: {fileID: 0}
+    - target: {fileID: 2375511235440403932, guid: 6b7b535ec00766240812a5bd7fffc2a7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083502597396676501, guid: 6b7b535ec00766240812a5bd7fffc2a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537354797129947579, guid: 6b7b535ec00766240812a5bd7fffc2a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 14.6292
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537354797129947579, guid: 6b7b535ec00766240812a5bd7fffc2a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 8.2378
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537354797129947579, guid: 6b7b535ec00766240812a5bd7fffc2a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.6039
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537354797129947579, guid: 6b7b535ec00766240812a5bd7fffc2a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.4318
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971457571794546707, guid: 6b7b535ec00766240812a5bd7fffc2a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 11.1946
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971457571794546707, guid: 6b7b535ec00766240812a5bd7fffc2a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 6.0339
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971457571794546707, guid: 6b7b535ec00766240812a5bd7fffc2a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.6692
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971457571794546707, guid: 6b7b535ec00766240812a5bd7fffc2a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 5935367206420999498, guid: 6b7b535ec00766240812a5bd7fffc2a7, type: 3}
       propertyPath: m_Name
       value: Animal
@@ -8872,88 +8912,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1042054390
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1042054394}
-  - component: {fileID: 1042054393}
-  - component: {fileID: 1042054392}
-  - component: {fileID: 1042054391}
-  m_Layer: 0
-  m_Name: 3D Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1042054391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042054390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 089f3e4187bf88847a8a8a1d5d622442, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sideMoveForce: 8
-  _upwardForce: 10
-  isunderWater: 1
-  realDaisy: {fileID: 2138520225}
-  daisy: {fileID: 2138520230}
---- !u!136 &1042054392
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042054390}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.3934815
-  m_Height: 2.786963
-  m_Direction: 1
-  m_Center: {x: 0.0073816776, y: 0.04019022, z: 0}
---- !u!54 &1042054393
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042054390}
-  serializedVersion: 2
-  m_Mass: 1.18
-  m_Drag: 0
-  m_AngularDrag: 0.24
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 120
-  m_CollisionDetection: 0
---- !u!4 &1042054394
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042054390}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32, y: -3.49, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2138520231}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1047071308
 GameObject:
   m_ObjectHideFlags: 0
@@ -19194,9 +19152,11 @@ GameObject:
   - component: {fileID: 2138520231}
   - component: {fileID: 2138520230}
   - component: {fileID: 2138520235}
+  - component: {fileID: 2138520237}
   - component: {fileID: 2138520234}
   - component: {fileID: 2138520232}
   - component: {fileID: 2138520233}
+  - component: {fileID: 2138520236}
   m_Layer: 0
   m_Name: BubbleGirl
   m_TagString: Untagged
@@ -19264,13 +19224,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138520225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.32, y: -3.49, z: 0}
   m_LocalScale: {x: 0.775, y: 0.7625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 964729217}
   - {fileID: 996304034}
-  m_Father: {fileID: 1042054394}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2138520232
@@ -19340,3 +19300,41 @@ MonoBehaviour:
   launchForce: 1.5
   timer: 0
   slideCharger: {fileID: 1907238300}
+--- !u!50 &2138520236
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138520225}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &2138520237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138520225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6298769746430bb47a2c005306f9dd9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sideMoveForce: 10
+  _upwardForce: 10
+  isunderWater: 1
+  realDaisy: {fileID: 0}
+  daisy: {fileID: 2138520230}

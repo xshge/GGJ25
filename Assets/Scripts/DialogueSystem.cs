@@ -47,6 +47,9 @@ public class DialogueSystem : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         dialogueCanvas.SetActive(true);
+        //TODO:change animal sprite;
+        //TODO: go through the dialogues;
+        
         yield return new WaitForSeconds(2f);
         if (_daisy != null) _daisy.bodyType = RigidbodyType2D.Dynamic;
         dialogueCanvas.SetActive(false);

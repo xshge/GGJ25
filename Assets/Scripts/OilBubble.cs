@@ -9,7 +9,7 @@ public class OilBubble : MonoBehaviour
     public void ShrinkOil()
     {
         HP--;
-        Vector3 newScale = transform.localScale * .5f;
+        Vector3 newScale = transform.localScale * .75f;
         if (newScale.x > animalTransform.localScale.x)
         {
             transform.localScale = newScale;
