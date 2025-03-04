@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 15683284}
   m_Layer: 0
   m_Name: bird (3)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 33142188}
   m_Layer: 0
   m_Name: bird (2)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 126346647}
   m_Layer: 0
   m_Name: cloud (4)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1096,7 +1096,7 @@ GameObject:
   - component: {fileID: 152827186}
   m_Layer: 0
   m_Name: bird (9)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 160696907}
   m_Layer: 0
   m_Name: cloud (24)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1394,7 +1394,7 @@ GameObject:
   - component: {fileID: 172807075}
   m_Layer: 0
   m_Name: cloud (21)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1505,7 +1505,7 @@ GameObject:
   - component: {fileID: 191834665}
   m_Layer: 0
   m_Name: coral (3)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1616,7 +1616,7 @@ GameObject:
   - component: {fileID: 200904436}
   m_Layer: 0
   m_Name: pipe (5)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1727,7 +1727,7 @@ GameObject:
   - component: {fileID: 218867765}
   m_Layer: 0
   m_Name: coral (2)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1879,7 +1879,7 @@ GameObject:
   - component: {fileID: 235003192}
   m_Layer: 0
   m_Name: bird (7)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1990,7 +1990,7 @@ GameObject:
   - component: {fileID: 266320620}
   m_Layer: 0
   m_Name: fish (21)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2101,7 +2101,7 @@ GameObject:
   - component: {fileID: 274786012}
   m_Layer: 0
   m_Name: fish (9)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2212,7 +2212,7 @@ GameObject:
   - component: {fileID: 290313266}
   m_Layer: 0
   m_Name: fish (5)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2323,7 +2323,7 @@ GameObject:
   - component: {fileID: 297880494}
   m_Layer: 0
   m_Name: bush
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2434,7 +2434,7 @@ GameObject:
   - component: {fileID: 311017667}
   m_Layer: 0
   m_Name: fish (10)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2545,7 +2545,7 @@ GameObject:
   - component: {fileID: 324238854}
   m_Layer: 0
   m_Name: fish (1)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2740,7 +2740,7 @@ GameObject:
   - component: {fileID: 357806438}
   m_Layer: 0
   m_Name: fish (2)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2972,7 +2972,7 @@ GameObject:
   - component: {fileID: 377197951}
   m_Layer: 0
   m_Name: pipe (8)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3083,7 +3083,7 @@ GameObject:
   - component: {fileID: 377223714}
   m_Layer: 0
   m_Name: cloud (25)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3194,7 +3194,7 @@ GameObject:
   - component: {fileID: 402428429}
   m_Layer: 0
   m_Name: pipe (9)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3473,7 +3473,7 @@ GameObject:
   - component: {fileID: 433975183}
   m_Layer: 0
   m_Name: pipe (3)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3678,7 +3678,7 @@ GameObject:
   - component: {fileID: 476911746}
   m_Layer: 0
   m_Name: cloud (22)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3957,7 +3957,7 @@ GameObject:
   - component: {fileID: 481184096}
   m_Layer: 0
   m_Name: coral (4)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4068,7 +4068,7 @@ GameObject:
   - component: {fileID: 512078338}
   m_Layer: 0
   m_Name: cloud (10)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4179,7 +4179,7 @@ GameObject:
   - component: {fileID: 524558582}
   m_Layer: 0
   m_Name: fish (12)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4290,7 +4290,7 @@ GameObject:
   - component: {fileID: 525817538}
   m_Layer: 0
   m_Name: bird (13)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4582,7 +4582,7 @@ GameObject:
   - component: {fileID: 597406741}
   m_Layer: 0
   m_Name: pipe (10)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4693,7 +4693,7 @@ GameObject:
   - component: {fileID: 607002722}
   m_Layer: 0
   m_Name: pipe
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5086,7 +5086,7 @@ GameObject:
   - component: {fileID: 630974760}
   m_Layer: 0
   m_Name: cloud
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5365,7 +5365,7 @@ GameObject:
   - component: {fileID: 641310651}
   m_Layer: 0
   m_Name: pipe (15)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5931,7 +5931,7 @@ GameObject:
   - component: {fileID: 705221527}
   m_Layer: 0
   m_Name: cloud (18)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6308,7 +6308,7 @@ GameObject:
   - component: {fileID: 767291870}
   m_Layer: 0
   m_Name: cloud (20)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6419,7 +6419,7 @@ GameObject:
   - component: {fileID: 770139535}
   m_Layer: 0
   m_Name: container (9)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6716,7 +6716,7 @@ GameObject:
   - component: {fileID: 818154014}
   m_Layer: 0
   m_Name: bird (10)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6938,7 +6938,7 @@ GameObject:
   - component: {fileID: 858146041}
   m_Layer: 0
   m_Name: pipe (2)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7049,7 +7049,7 @@ GameObject:
   - component: {fileID: 862038842}
   m_Layer: 0
   m_Name: cloud (6)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7313,7 +7313,7 @@ GameObject:
   - component: {fileID: 879943847}
   m_Layer: 0
   m_Name: cloud (16)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7545,7 +7545,7 @@ GameObject:
   - component: {fileID: 919836333}
   m_Layer: 0
   m_Name: coral (7)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7656,7 +7656,7 @@ GameObject:
   - component: {fileID: 920986278}
   m_Layer: 0
   m_Name: bird (18)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7767,7 +7767,7 @@ GameObject:
   - component: {fileID: 926977263}
   m_Layer: 0
   m_Name: cloud (2)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7878,7 +7878,7 @@ GameObject:
   - component: {fileID: 951526411}
   m_Layer: 0
   m_Name: cloud (5)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8349,7 +8349,7 @@ GameObject:
   - component: {fileID: 1004827168}
   m_Layer: 0
   m_Name: pipe (12)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8579,7 +8579,7 @@ GameObject:
   - component: {fileID: 1025861420}
   m_Layer: 0
   m_Name: coral (8)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8774,7 +8774,7 @@ GameObject:
   - component: {fileID: 1039297531}
   m_Layer: 0
   m_Name: fish (8)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8967,7 +8967,7 @@ GameObject:
   - component: {fileID: 1047071310}
   m_Layer: 0
   m_Name: bird (4)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9078,7 +9078,7 @@ GameObject:
   - component: {fileID: 1054253218}
   m_Layer: 0
   m_Name: bird (8)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9189,7 +9189,7 @@ GameObject:
   - component: {fileID: 1081306049}
   m_Layer: 0
   m_Name: cloud (26)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9411,7 +9411,7 @@ GameObject:
   - component: {fileID: 1090941992}
   m_Layer: 0
   m_Name: pipe (7)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9522,7 +9522,7 @@ GameObject:
   - component: {fileID: 1094198528}
   m_Layer: 0
   m_Name: container (4)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9717,7 +9717,7 @@ GameObject:
   - component: {fileID: 1127812251}
   m_Layer: 0
   m_Name: cloud (8)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9828,7 +9828,7 @@ GameObject:
   - component: {fileID: 1129415079}
   m_Layer: 0
   m_Name: bird (6)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9939,7 +9939,7 @@ GameObject:
   - component: {fileID: 1134226204}
   m_Layer: 0
   m_Name: fish (3)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10050,7 +10050,7 @@ GameObject:
   - component: {fileID: 1134619471}
   m_Layer: 0
   m_Name: container
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10161,7 +10161,7 @@ GameObject:
   - component: {fileID: 1151958080}
   m_Layer: 0
   m_Name: fish (18)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10356,7 +10356,7 @@ GameObject:
   - component: {fileID: 1171150479}
   m_Layer: 0
   m_Name: cloud (12)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10467,7 +10467,7 @@ GameObject:
   - component: {fileID: 1177930928}
   m_Layer: 0
   m_Name: cloud (17)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10800,7 +10800,7 @@ GameObject:
   - component: {fileID: 1201188193}
   m_Layer: 0
   m_Name: cloud (23)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10911,7 +10911,7 @@ GameObject:
   - component: {fileID: 1214342807}
   m_Layer: 0
   m_Name: cloud (9)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11022,7 +11022,7 @@ GameObject:
   - component: {fileID: 1228810911}
   m_Layer: 0
   m_Name: cloud (1)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11665,7 +11665,7 @@ GameObject:
   - component: {fileID: 1363862468}
   m_Layer: 0
   m_Name: pipe (13)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11944,7 +11944,7 @@ GameObject:
   - component: {fileID: 1383006370}
   m_Layer: 0
   m_Name: pipe (4)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12055,7 +12055,7 @@ GameObject:
   - component: {fileID: 1386438009}
   m_Layer: 0
   m_Name: fish (19)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12166,7 +12166,7 @@ GameObject:
   - component: {fileID: 1397414560}
   m_Layer: 0
   m_Name: fish (17)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12277,7 +12277,7 @@ GameObject:
   - component: {fileID: 1404825348}
   m_Layer: 0
   m_Name: bird
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12472,7 +12472,7 @@ GameObject:
   - component: {fileID: 1413159082}
   m_Layer: 0
   m_Name: bird (11)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12583,7 +12583,7 @@ GameObject:
   - component: {fileID: 1427004377}
   m_Layer: 0
   m_Name: bird (16)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12694,7 +12694,7 @@ GameObject:
   - component: {fileID: 1438007442}
   m_Layer: 0
   m_Name: fish (13)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12805,7 +12805,7 @@ GameObject:
   - component: {fileID: 1439512510}
   m_Layer: 0
   m_Name: fish (4)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13195,7 +13195,7 @@ GameObject:
   - component: {fileID: 1520466061}
   m_Layer: 0
   m_Name: cloud (14)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13306,7 +13306,7 @@ GameObject:
   - component: {fileID: 1522815503}
   m_Layer: 0
   m_Name: fish
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13417,7 +13417,7 @@ GameObject:
   - component: {fileID: 1536593063}
   m_Layer: 0
   m_Name: container (8)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13696,7 +13696,7 @@ GameObject:
   - component: {fileID: 1556976979}
   m_Layer: 0
   m_Name: cloud (11)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13807,7 +13807,7 @@ GameObject:
   - component: {fileID: 1577827506}
   m_Layer: 0
   m_Name: container (2)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13918,7 +13918,7 @@ GameObject:
   - component: {fileID: 1577957248}
   m_Layer: 0
   m_Name: pipe (1)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14029,7 +14029,7 @@ GameObject:
   - component: {fileID: 1578398801}
   m_Layer: 0
   m_Name: container (3)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14224,7 +14224,7 @@ GameObject:
   - component: {fileID: 1588119195}
   m_Layer: 0
   m_Name: fish (22)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14446,7 +14446,7 @@ GameObject:
   - component: {fileID: 1602425645}
   m_Layer: 0
   m_Name: cloud (19)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14641,7 +14641,7 @@ GameObject:
   - component: {fileID: 1622091781}
   m_Layer: 0
   m_Name: bird (1)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14752,7 +14752,7 @@ GameObject:
   - component: {fileID: 1625899865}
   m_Layer: 0
   m_Name: pipe (11)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15007,7 +15007,7 @@ GameObject:
   - component: {fileID: 1669461111}
   m_Layer: 0
   m_Name: fish (6)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15118,7 +15118,7 @@ GameObject:
   - component: {fileID: 1697530912}
   m_Layer: 0
   m_Name: coral (5)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15229,7 +15229,7 @@ GameObject:
   - component: {fileID: 1709447504}
   m_Layer: 0
   m_Name: container (5)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15424,7 +15424,7 @@ GameObject:
   - component: {fileID: 1729742065}
   m_Layer: 0
   m_Name: cloud (28)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15535,7 +15535,7 @@ GameObject:
   - component: {fileID: 1734068141}
   m_Layer: 0
   m_Name: cloud (13)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15646,7 +15646,7 @@ GameObject:
   - component: {fileID: 1760735257}
   m_Layer: 0
   m_Name: fish (11)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15757,7 +15757,7 @@ GameObject:
   - component: {fileID: 1768219842}
   m_Layer: 0
   m_Name: bird (17)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15868,7 +15868,7 @@ GameObject:
   - component: {fileID: 1770973217}
   m_Layer: 0
   m_Name: fish (14)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15979,7 +15979,7 @@ GameObject:
   - component: {fileID: 1773780980}
   m_Layer: 0
   m_Name: container (6)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16136,7 +16136,7 @@ GameObject:
   - component: {fileID: 1802061107}
   m_Layer: 0
   m_Name: tree
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16331,7 +16331,7 @@ GameObject:
   - component: {fileID: 1813336363}
   m_Layer: 0
   m_Name: fish (15)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16526,7 +16526,7 @@ GameObject:
   - component: {fileID: 1864729228}
   m_Layer: 0
   m_Name: pipe (14)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16713,7 +16713,7 @@ GameObject:
   - component: {fileID: 1895251583}
   m_Layer: 0
   m_Name: cloud (7)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16824,7 +16824,7 @@ GameObject:
   - component: {fileID: 1896755134}
   m_Layer: 0
   m_Name: container (1)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17110,7 +17110,7 @@ GameObject:
   - component: {fileID: 1932506957}
   m_Layer: 0
   m_Name: cloud (15)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17305,7 +17305,7 @@ GameObject:
   - component: {fileID: 1963024441}
   m_Layer: 0
   m_Name: cloud (3)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17500,7 +17500,7 @@ GameObject:
   - component: {fileID: 1977907032}
   m_Layer: 0
   m_Name: cloud (27)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17611,7 +17611,7 @@ GameObject:
   - component: {fileID: 1982849979}
   m_Layer: 0
   m_Name: coral (6)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17722,7 +17722,7 @@ GameObject:
   - component: {fileID: 2007291413}
   m_Layer: 0
   m_Name: bird (5)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17833,7 +17833,7 @@ GameObject:
   - component: {fileID: 2009664051}
   m_Layer: 0
   m_Name: fish (20)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17944,7 +17944,7 @@ GameObject:
   - component: {fileID: 2012195130}
   m_Layer: 0
   m_Name: bird (12)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18383,7 +18383,7 @@ GameObject:
   - component: {fileID: 2048141388}
   m_Layer: 0
   m_Name: container (7)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18578,7 +18578,7 @@ GameObject:
   - component: {fileID: 2086786431}
   m_Layer: 0
   m_Name: bird (15)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18773,7 +18773,7 @@ GameObject:
   - component: {fileID: 2115071485}
   m_Layer: 0
   m_Name: bird (14)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18884,7 +18884,7 @@ GameObject:
   - component: {fileID: 2121084542}
   m_Layer: 0
   m_Name: pipe (6)
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
