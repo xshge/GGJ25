@@ -2310,6 +2310,14 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.036647502
       objectReference: {fileID: 0}
+    - target: {fileID: 6992600255303590140, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
+      propertyPath: _upwardForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992600255303590140, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
+      propertyPath: _sideMoveForce
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 6992600255303590141, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
       propertyPath: m_Name
       value: BubbleGirl-in3D
