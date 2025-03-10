@@ -29,9 +29,12 @@ public class Bubble_Shooter : MonoBehaviour
     public Slider slideCharger;
 
     Animator _animate;
+
+    DaisyStates DaisyStateMachine;
     private void Start()
     {
         _animate = GetComponent<Animator>();
+        DaisyStateMachine = GetComponent<DaisyStates>();
     }
     void Update()
     {
@@ -48,6 +51,7 @@ public class Bubble_Shooter : MonoBehaviour
         //checks if the left mouse button is being held down
         if (Input.GetMouseButton(0))
         {
+            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Shooting);
             timer += Time.deltaTime;
             slideCharger.value = timer;
             _animate.SetBool("Bubbling", true);
@@ -74,7 +78,7 @@ public class Bubble_Shooter : MonoBehaviour
         //launches the bubble
         if (BubbleAimable)
         {
-            newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection * .5f * timer, ForceMode2D.Impulse);
+            newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection.normalized * timer, ForceMode2D.Impulse);
         }
         else // if the bubble needs to shoot straight up
         {
@@ -85,5 +89,7 @@ public class Bubble_Shooter : MonoBehaviour
         //resets timer
         timer = 0;
         slideCharger.value = 0;
+
+        DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
     }
 }

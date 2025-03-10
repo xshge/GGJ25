@@ -17,10 +17,15 @@ public class CharacterController : MonoBehaviour
     public SpriteRenderer daisy;
     float levelChange = 1;
 
+
+    public DaisyStates DaisyStateMachine;
+
     void Start()
     {
         _pRB = GetComponent<Rigidbody>();
         _animate = realDaisy.GetComponent<Animator>();
+
+        DaisyStateMachine = gameObject.GetComponent<DaisyStates>();
     }
     void Update()
     {
@@ -37,10 +42,16 @@ public class CharacterController : MonoBehaviour
             timer = 0.75f;
             _pRB.AddForce(new Vector3(0, 1) * _upwardForce, ForceMode.Impulse);
             _animate.SetBool("up", true);
+            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Floating);
         }
         else
         {
             _animate.SetBool("up", false);
+        }
+
+        if(_pRB.velocity.y < 0 && DaisyStateMachine.daisyState != BubbleGirlState.Falling)
+        {
+            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Falling);
         }
 
     }
@@ -71,7 +82,7 @@ public class CharacterController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("obstacle"))
         {   
-            
+            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Dead);
             StartCoroutine(Dying());
         }
     }
@@ -93,6 +104,8 @@ public class CharacterController : MonoBehaviour
         daisy.enabled = false;
         yield return new WaitForSeconds(1.5f);
         EventManager._respawn(daisy);
+
+        DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         yield break;
     }
     #region Redacted InputSystem code
