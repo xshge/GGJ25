@@ -43,7 +43,12 @@ public class DaisyStates : MonoBehaviour
     public void ChangeDaisyState(BubbleGirlState state)
     {
         daisyState = state;
+
+        //can we call the events somewhere here?
     }
+
+
+    #region ShieldStuff
 
     public void ShieldPopped()
     {
@@ -69,4 +74,5 @@ public class DaisyStates : MonoBehaviour
 
         Debug.Log("setting shields active");
     }
+    #endregion
 }
