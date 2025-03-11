@@ -25,7 +25,6 @@ public class CharacterController : MonoBehaviour
         _pRB = GetComponent<Rigidbody>();
         _animate = realDaisy.GetComponent<Animator>();
 
-        DaisyStateMachine = gameObject.GetComponent<DaisyStates>();
     }
     void Update()
     {

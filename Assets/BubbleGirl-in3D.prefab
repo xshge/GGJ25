@@ -361,6 +361,7 @@ MonoBehaviour:
   BubbleAimable: 1
   bubblePrefab: {fileID: 1457248824781827881, guid: 75c421bc1f4362846bc34809f467cfe5, type: 3}
   spawnerTransform: {fileID: 6992600255356418217}
+  directionBasedSpawner: {x: 0, y: 0, z: 0}
   launchForce: 1.5
   timer: 0
   slideCharger: {fileID: 0}
@@ -512,6 +513,7 @@ MonoBehaviour:
   isunderWater: 1
   realDaisy: {fileID: 6992600254214727338}
   daisy: {fileID: 6992600254214727341}
+  DaisyStateMachine: {fileID: 6363917360025027410}
 --- !u!1 &6992600255356418218
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6992600255356418218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.64, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
