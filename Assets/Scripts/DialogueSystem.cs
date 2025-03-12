@@ -38,6 +38,7 @@ public class DialogueSystem : MonoBehaviour
                 //trigger aniamtion;
                 //trigger checkpoint;
                 StartCoroutine(TextBoxDialogue());
+
             }
           
         }

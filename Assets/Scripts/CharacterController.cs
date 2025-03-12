@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -183,13 +181,18 @@ public class CharacterController : MonoBehaviour
             StartCoroutine(Dying());
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("LevelChange"))
         {
             levelChange += 0.25f;
             Debug.Log("v" + _pRB.velocity);
-        }
+        };
+
+    }
+    void DialogueState()
+    {
+
     }
     IEnumerator Dying()
     {
