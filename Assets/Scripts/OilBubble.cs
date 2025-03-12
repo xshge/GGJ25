@@ -30,6 +30,9 @@ public class OilBubble : MonoBehaviour
 
         yield return new WaitForSeconds(.4f);
 
+        //start dialogue through event system.
+        //TODO: call function for starting ();
+
         Destroy(gameObject);
     }
 }

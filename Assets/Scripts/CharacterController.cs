@@ -77,7 +77,7 @@ public class CharacterController : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("obstacle"))
         {   
@@ -85,13 +85,18 @@ public class CharacterController : MonoBehaviour
             StartCoroutine(Dying());
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("LevelChange"))
         {
             levelChange += 0.25f;
             Debug.Log("v" + _pRB.velocity);
-        }
+        };
+
+    }
+    void DialogueState()
+    {
+
     }
     IEnumerator Dying()
     {
