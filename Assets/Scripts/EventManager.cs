@@ -7,6 +7,7 @@ public class EventManager : MonoBehaviour
 {
     public static event Action<Vector3> saveCheckPoint;
     public static event Action<SpriteRenderer> restoreCheckPoint;
+    public static event Action startScene;
     void Start()
     {
         
