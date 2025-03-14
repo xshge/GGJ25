@@ -192,6 +192,13 @@ public class CharacterController : MonoBehaviour
     }
     void DialogueState()
     {
+        DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Talking);
+
+        _pRB.isKinematic = true;
+        //TODO: set bool for idle animation;
+
+
+
 
     }
     IEnumerator Dying()
