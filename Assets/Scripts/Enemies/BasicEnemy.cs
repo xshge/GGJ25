@@ -9,7 +9,7 @@ public class BasicEnemy : MonoBehaviour
     public GameObject _projectile;
     public Transform _origin;
     public float Speed = 1f;
-    public float RotAngleZ = 45;
+    public float RotAngleZ = 45; //changed in the inspector; 
     public LayerMask _castLayer;
     public bool isAlive;
 
@@ -17,13 +17,13 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField] private BasicEn_States states;
    // [SerializeField] private Bullet bltScrpt;
     
-    private Transform Target;
     private Coroutine LookCoroutine;
     private Coroutine Sweeping;
   
 
     void Start()
-    {
+    {   
+        //atart the sweeping coroutine;
         Sweeping = StartCoroutine(sweepDetect());
 
     }
@@ -31,9 +31,10 @@ public class BasicEnemy : MonoBehaviour
     {
         bool _detectedPlayer = false;
 
-        //detecting the player;
+        //detecting the player during the sweeping State (its default state);
         while (!_detectedPlayer)
-        {
+        {   
+            //slerped to be back and forth in a 180 degree angle;
             float rY = Mathf.SmoothStep(0, RotAngleZ, Mathf.PingPong(Time.time * Speed, 1));
             transform.rotation = Quaternion.Euler(0, 0, rY);
 
@@ -44,6 +45,7 @@ public class BasicEnemy : MonoBehaviour
                 
                 _detectedPlayer = true;
                 states.ChangeState(EnState.Shooting);
+                //coroutine for tracking player movements and face toward them while rotating on the z-axis;
                 StartRotating(result.transform);
             }
             yield return null;
@@ -68,10 +70,11 @@ public class BasicEnemy : MonoBehaviour
         float bulletSpeed = 3;
         float time = 0;
 
-        Vector3 direction = plyr.position - transform.position;
+        //Vector3 direction = plyr.position - transform.position;
         Quaternion initialRotation = transform.rotation;
         Quaternion lookRotation = Quaternion.LookRotation( transform.forward, plyr.position - transform.position);
        
+        //roate to look;
         while (time < 1)
         {
            transform.rotation = Quaternion.Slerp(initialRotation, lookRotation, time);
@@ -82,14 +85,16 @@ public class BasicEnemy : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
+
         //instantiate bullets;
         GameObject _blt = Instantiate(_projectile, _gunpoint.position, Quaternion.identity);
         Bullet bScript = _blt.AddComponent<Bullet>();
-        //debug ray;
+     
         Vector3 StartPos = _blt.transform.position;
         remainingDistance = Vector3.Distance(StartPos, plyr.position);
         bScript.bulletMovement(remainingDistance,StartPos,plyr.position);
   
+        //check to see if still alive, if it is then keep on shooting;
         if (states.currentState == EnState.Shooting)
         {
             StartCoroutine(LookAt(plyr));
@@ -99,7 +104,8 @@ public class BasicEnemy : MonoBehaviour
        
     }
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {   
+        //determeine whether Daisy's bubble have hit yet. 
         if (collision.transform.CompareTag("bubble"))
         {
             states.ChangeState(EnState.Death);
@@ -109,6 +115,8 @@ public class BasicEnemy : MonoBehaviour
     {
         StopAllCoroutines();
     }
+
+    //for debug reasone a sphere is drawn. 
     void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(_origin.position - transform.right * 1, 5f);
