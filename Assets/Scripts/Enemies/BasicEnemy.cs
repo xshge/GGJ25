@@ -13,18 +13,20 @@ public class BasicEnemy : MonoBehaviour
     public LayerMask _castLayer;
     public bool isAlive;
 
-    [SerializeField] private Transform _gunpoint;
+    [SerializeField] private Transform _leftArm, _rigtArm;
     [SerializeField] private BasicEn_States states;
    // [SerializeField] private Bullet bltScrpt;
     
     private Transform Target;
     private Coroutine LookCoroutine;
     private Coroutine Sweeping;
-  
+    private GameObject levelSpawnPoint; 
 
     void Start()
     {
         Sweeping = StartCoroutine(sweepDetect());
+        //note for later: change this assignment to a level loader;
+        levelSpawnPoint = GameObject.FindWithTag("spawn");
 
     }
     private IEnumerator sweepDetect()
@@ -67,7 +69,39 @@ public class BasicEnemy : MonoBehaviour
         float remainingDistance, dist;
         float bulletSpeed = 3;
         float time = 0;
+        //determine if the current shooting arm is assigned and wether the same;
+        //determine which arm is closer;
+        Vector3 leftLoc = _leftArm.GetComponentInChildren<Transform>().position;
+        Vector3 rightLoc = _rigtArm.GetComponentInChildren<Transform>().position;
 
+        float _l = (leftLoc - plyr.position).magnitude;
+        float _r = (rightLoc - plyr.position).magnitude;
+        Vector3 closerArm = Vector3.zero;
+
+        if(_l > _r)
+        {
+            closerArm = rightLoc;
+        }else if( _r > _l)
+        {
+            closerArm = leftLoc;
+        }
+        else
+        {
+            if(closerArm == Vector3.zero)
+            {
+                if(transform.position.x > levelSpawnPoint.transform.position.x)
+                {
+                    closerArm = rightLoc;
+                }
+                else
+                {
+                    closerArm = leftLoc;
+                }
+
+            }
+        }
+        
+       
         Vector3 direction = plyr.position - transform.position;
         Quaternion initialRotation = transform.rotation;
         Quaternion lookRotation = Quaternion.LookRotation( transform.forward, plyr.position - transform.position);
@@ -83,7 +117,7 @@ public class BasicEnemy : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         //instantiate bullets;
-        GameObject _blt = Instantiate(_projectile, _gunpoint.position, Quaternion.identity);
+        GameObject _blt = Instantiate(_projectile, closerArm, Quaternion.identity);
         Bullet bScript = _blt.AddComponent<Bullet>();
         //debug ray;
         Vector3 StartPos = _blt.transform.position;
