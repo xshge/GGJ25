@@ -428,6 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   daisyState: 0
   shieldState: 0
+  characterController: {fileID: 6992600255303590140}
   shield2D: {fileID: 5140872455664604150}
   shield3D: {fileID: 4512538750147040756}
 --- !u!1 &6992600255303590141
@@ -508,6 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089f3e4187bf88847a8a8a1d5d622442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pRB: {fileID: 0}
   _sideMoveForce: 8
   _upwardForce: 10
   isunderWater: 1
