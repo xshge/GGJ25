@@ -25,6 +25,8 @@ public class DaisyStates : MonoBehaviour
     public BubbleGirlState daisyState;
     public ShieldStates shieldState;
 
+    public CharacterController characterController;
+
     public GameObject shield2D;
     public GameObject shield3D;
 
@@ -44,6 +46,14 @@ public class DaisyStates : MonoBehaviour
     {
         daisyState = state;
 
+        if(daisyState == BubbleGirlState.Falling)
+        {
+            characterController._pRB.drag = 0;
+        }
+        else
+        {
+            characterController._pRB.drag = .4f;
+        }
         //can we call the events somewhere here?
     }
 
