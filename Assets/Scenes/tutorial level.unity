@@ -2246,9 +2246,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3353373454959721515, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5803989748110715320, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992600254214727328, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
+      propertyPath: orthoCam
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6992600254214727328, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
       propertyPath: m_Enabled
