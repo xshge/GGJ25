@@ -76,12 +76,12 @@ public class BasicEnemy : MonoBehaviour
         {
            transform.rotation = Quaternion.Slerp(initialRotation, lookRotation, time);
 
-            time += Time.deltaTime * 5;
+            time += Time.deltaTime * 5f;
 
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         //instantiate bullets;
         GameObject _blt = Instantiate(_projectile, _gunpoint.position, Quaternion.identity);
         Bullet bScript = _blt.AddComponent<Bullet>();
