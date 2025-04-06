@@ -15,6 +15,8 @@ public class Bubble_Shooter : MonoBehaviour
     public GameObject bubblePrefab;
     public Transform spawnerTransform;
 
+    public Vector3 directionBasedSpawner;
+
     //Vectors
     private Vector2 bubbleDirection;
 
@@ -29,9 +31,12 @@ public class Bubble_Shooter : MonoBehaviour
     public Slider slideCharger;
 
     Animator _animate;
+
+    DaisyStates DaisyStateMachine;
     private void Start()
     {
         _animate = GetComponent<Animator>();
+        DaisyStateMachine = GetComponent<DaisyStates>();
     }
     void Update()
     {
@@ -48,6 +53,7 @@ public class Bubble_Shooter : MonoBehaviour
         //checks if the left mouse button is being held down
         if (Input.GetMouseButton(0))
         {
+            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Shooting);
             timer += Time.deltaTime;
             slideCharger.value = timer;
             _animate.SetBool("Bubbling", true);
@@ -65,16 +71,20 @@ public class Bubble_Shooter : MonoBehaviour
         //calculates the direction the bubble should travel in
         bubbleDirection = mousePos - playerPos;
 
+        Vector2 bDNormalized = bubbleDirection.normalized;
+
+        directionBasedSpawner = new Vector3((float)(bDNormalized.x * 2.64), (float)(bDNormalized.y * 2.64), 0);
+
         //if we end up chosing to aim the bubble, i'm gonna max out the x and y values of the bubbleDirection vector at like 2 & scale it so they're at the same speed rather than speed being impacted by how far away from the player the mouse is clicked
         Debug.Log(bubbleDirection);
 
         //summons the bubble
-        GameObject newBubble = Instantiate(bubblePrefab, spawnerTransform.position, Quaternion.identity, transform);
+        GameObject newBubble = Instantiate(bubblePrefab, spawnerTransform.position + directionBasedSpawner, Quaternion.identity, transform);
 
         //launches the bubble
         if (BubbleAimable)
         {
-            newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection * .5f * timer, ForceMode2D.Impulse);
+            newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection.normalized * launchForce * timer, ForceMode2D.Impulse);
         }
         else // if the bubble needs to shoot straight up
         {
@@ -85,5 +95,7 @@ public class Bubble_Shooter : MonoBehaviour
         //resets timer
         timer = 0;
         slideCharger.value = 0;
+
+        DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
     }
 }
