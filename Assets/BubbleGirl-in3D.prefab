@@ -365,6 +365,7 @@ MonoBehaviour:
   launchForce: 1.5
   timer: 0
   slideCharger: {fileID: 0}
+  orthoCam: {fileID: 0}
 --- !u!114 &6992600254214727329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,7 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pRB: {fileID: 0}
   _sideMoveForce: 8
-  _upwardForce: 10
+  _upwardForce: 15
   isunderWater: 1
   realDaisy: {fileID: 6992600254214727338}
   daisy: {fileID: 6992600254214727341}

@@ -42,7 +42,7 @@ public class Bubble_Shooter : MonoBehaviour
     {
         //tracks where the player is and where the mouse is
         playerPos = transform.position;
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = GetWorldPositionOnPlane(Input.mousePosition,0);
 
         // Xinyi can you do the input system stuff for me please and thank you
         if (Input.GetMouseButtonUp(0))
@@ -60,6 +60,15 @@ public class Bubble_Shooter : MonoBehaviour
         }
     }
 
+    public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
+        float distance;
+        xy.Raycast(ray, out distance);
+        return ray.GetPoint(distance);
+    }
+
     void LaunchBubble()
     {
         //maxes out the time a bubble can be held for at 3 seconds
@@ -68,15 +77,19 @@ public class Bubble_Shooter : MonoBehaviour
             timer = 3;
         }
 
+        //adjusting mouse position vector, since the camera's a little messed up
+        mousePos += new Vector2(-.2f, 5.35f);
+
         //calculates the direction the bubble should travel in
         bubbleDirection = mousePos - playerPos;
 
+        Debug.Log("mousePos: " + mousePos);
+
         Vector2 bDNormalized = bubbleDirection.normalized;
 
-        directionBasedSpawner = new Vector3((float)(bDNormalized.x * 2.64), (float)(bDNormalized.y * 2.64), 0);
+        directionBasedSpawner = new Vector3((float)(bDNormalized.x * 4.64), (float)(bDNormalized.y * 4.64), 0);
 
-        //if we end up chosing to aim the bubble, i'm gonna max out the x and y values of the bubbleDirection vector at like 2 & scale it so they're at the same speed rather than speed being impacted by how far away from the player the mouse is clicked
-        Debug.Log(bubbleDirection);
+        Debug.Log("bubble Direction: " + bubbleDirection);
 
         //summons the bubble
         GameObject newBubble = Instantiate(bubblePrefab, spawnerTransform.position + directionBasedSpawner, Quaternion.identity, transform);
