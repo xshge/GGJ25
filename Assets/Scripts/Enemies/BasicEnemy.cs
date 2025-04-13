@@ -37,7 +37,7 @@ public class BasicEnemy : MonoBehaviour
         while (!_detectedPlayer)
         {
             float rY = Mathf.SmoothStep(0, RotAngleZ, Mathf.PingPong(Time.time * Speed, 1));
-            transform.rotation = Quaternion.Euler(0, 0, rY);
+            _origin.rotation = Quaternion.Euler(0, 0, rY);
 
             //cast a circle cast to check for prescence
             RaycastHit2D result = Physics2D.CircleCast(_origin.position, 5f, transform.right, 1f,_castLayer);
@@ -71,44 +71,90 @@ public class BasicEnemy : MonoBehaviour
         float time = 0;
         //determine if the current shooting arm is assigned and wether the same;
         //determine which arm is closer;
-        Vector3 leftLoc = _leftArm.GetComponentInChildren<Transform>().position;
-        Vector3 rightLoc = _rigtArm.GetComponentInChildren<Transform>().position;
+        Vector3 leftLoc = _leftArm.GetChild(0).position;
+        Vector3 rightLoc = _rigtArm.GetChild(0).position;
 
+        //distance
         float _l = (leftLoc - plyr.position).magnitude;
         float _r = (rightLoc - plyr.position).magnitude;
+
+        //keeping track of the arm
         Vector3 closerArm = Vector3.zero;
+        Vector3 lastArm = Vector3.zero;
+        Transform currJoint = null;
 
         if(_l > _r)
         {
             closerArm = rightLoc;
+            Transform Joint = _rigtArm.parent.transform;
+            currJoint = Joint;
+
         }else if( _r > _l)
         {
             closerArm = leftLoc;
+            Transform Joint = _leftArm.parent.transform;
+            currJoint = Joint;
         }
         else
         {
             if(closerArm == Vector3.zero)
             {
-                if(transform.position.x > levelSpawnPoint.transform.position.x)
+                Transform Joint = null; 
+                if (transform.position.x > levelSpawnPoint.transform.position.x)
                 {
                     closerArm = rightLoc;
+                     Joint = _rigtArm.parent.transform;
                 }
                 else
                 {
                     closerArm = leftLoc;
+                    Joint = _leftArm.parent.transform;
                 }
 
+                currJoint = Joint;
             }
         }
         
-       
-        Vector3 direction = plyr.position - transform.position;
+        //set to the joint rotation, joints are set when the arms are set so there is no need to keep track of switching;
         Quaternion initialRotation = transform.rotation;
+        if(currJoint != null)
+        {
+            initialRotation = currJoint.rotation;
+        }
+
+        //determine the direction from the player to the gunpoint;
+        Vector3 direction = plyr.position - closerArm;
+        float _offset = 90;
+       
+        Quaternion jointRotation = Quaternion.LookRotation(currJoint.forward, direction.normalized);
+       
+        //potential angle and axis;
+        float angle = 0f;
+        Vector3 axis = Vector3.zero;
+
+       
+        jointRotation.ToAngleAxis(out angle, out axis);
+        
+        //restrict when it needs to turn counterclockwise
+        if (currJoint.position.x > _origin.position.x && angle > 160 )
+        {
+            _offset = -90;
+            
+        }
+
+        Vector3 offsetAngles = new Vector3(0, 0, angle - _offset);
+        //create an offset for the rotation;
+        jointRotation.eulerAngles = offsetAngles;
+
+        Debug.Log("og Angle:" + angle);
+        Debug.Log(jointRotation.eulerAngles);
+                                                           //direction to lool,      new direction of upward
         Quaternion lookRotation = Quaternion.LookRotation( transform.forward, plyr.position - transform.position);
        
         while (time < 1)
         {
-           transform.rotation = Quaternion.Slerp(initialRotation, lookRotation, time);
+          // transform.rotation = Quaternion.Slerp(initialRotation, lookRotation, time);
+          currJoint.rotation = Quaternion.Slerp(initialRotation, jointRotation, time);
 
             time += Time.deltaTime * 5f;
 
@@ -118,6 +164,7 @@ public class BasicEnemy : MonoBehaviour
         yield return new WaitForSeconds(1f);
         //instantiate bullets;
         GameObject _blt = Instantiate(_projectile, closerArm, Quaternion.identity);
+        lastArm = closerArm;
         Bullet bScript = _blt.AddComponent<Bullet>();
         //debug ray;
         Vector3 StartPos = _blt.transform.position;
