@@ -25,8 +25,8 @@ public class Checkpoint : MonoBehaviour
     {
         _animate.SetBool("Hit", false);
         ply.enabled = true;
-        transform.position = currentCheckpoint;
+        transform.parent.position = currentCheckpoint;
         rb.isKinematic = false;
-
+        rb.useGravity = true;
     }
 }

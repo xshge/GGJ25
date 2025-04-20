@@ -29,7 +29,7 @@ public class BasicEnemy : MonoBehaviour
         levelSpawnPoint = GameObject.FindWithTag("spawn");
 
     }
-    private IEnumerator sweepDetect()
+    public IEnumerator sweepDetect()
     {
         bool _detectedPlayer = false;
 
@@ -79,36 +79,41 @@ public class BasicEnemy : MonoBehaviour
         float _r = (rightLoc - plyr.position).magnitude;
 
         //keeping track of the arm
-        Vector3 closerArm = Vector3.zero;
+        Vector3 closerGunPoint = Vector3.zero;
         Vector3 lastArm = Vector3.zero;
         Transform currJoint = null;
+        Transform currentArm = null;
 
         if(_l > _r)
         {
-            closerArm = rightLoc;
+            closerGunPoint = rightLoc;
             Transform Joint = _rigtArm.parent.transform;
             currJoint = Joint;
-
-        }else if( _r > _l)
+            currentArm = _rigtArm;
+        }
+        else if( _r > _l)
         {
-            closerArm = leftLoc;
+            closerGunPoint = leftLoc;
             Transform Joint = _leftArm.parent.transform;
             currJoint = Joint;
+            currentArm = _leftArm;
         }
         else
         {
-            if(closerArm == Vector3.zero)
+            if(closerGunPoint == Vector3.zero)
             {
                 Transform Joint = null; 
                 if (transform.position.x > levelSpawnPoint.transform.position.x)
                 {
-                    closerArm = rightLoc;
+                    closerGunPoint = rightLoc;
                      Joint = _rigtArm.parent.transform;
+                    currentArm = _rigtArm;
                 }
                 else
                 {
-                    closerArm = leftLoc;
+                    closerGunPoint = leftLoc;
                     Joint = _leftArm.parent.transform;
+                    currentArm = _leftArm;
                 }
 
                 currJoint = Joint;
@@ -123,7 +128,7 @@ public class BasicEnemy : MonoBehaviour
         }
 
         //determine the direction from the player to the gunpoint;
-        Vector3 direction = plyr.position - closerArm;
+        Vector3 direction = plyr.position - closerGunPoint;
         float _offset = 90;
        
         Quaternion jointRotation = Quaternion.LookRotation(currJoint.forward, direction.normalized);
@@ -146,16 +151,17 @@ public class BasicEnemy : MonoBehaviour
         //create an offset for the rotation;
         jointRotation.eulerAngles = offsetAngles;
 
-        Debug.Log("og Angle:" + angle);
-        Debug.Log(jointRotation.eulerAngles);
+       /* Debug.Log("og Angle:" + angle);
+        Debug.Log(jointRotation.eulerAngles);*/
                                                            //direction to lool,      new direction of upward
-        Quaternion lookRotation = Quaternion.LookRotation( transform.forward, plyr.position - transform.position);
+        //Quaternion lookRotation = Quaternion.LookRotation( transform.forward, plyr.position - transform.position);
        
+        // rotatearound 
         while (time < 1)
         {
-          // transform.rotation = Quaternion.Slerp(initialRotation, lookRotation, time);
-          currJoint.rotation = Quaternion.Slerp(initialRotation, jointRotation, time);
-
+            // transform.rotation = Quaternion.Slerp(initialRotation, lookRotation, time);
+            currJoint.rotation = Quaternion.Slerp(initialRotation, jointRotation, time);
+           // currentArm.RotateAround(currJoint.position, transform.forward, 20 * Time.deltaTime);
             time += Time.deltaTime * 5f;
 
             yield return null;
@@ -163,8 +169,8 @@ public class BasicEnemy : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         //instantiate bullets;
-        GameObject _blt = Instantiate(_projectile, closerArm, Quaternion.identity);
-        lastArm = closerArm;
+        GameObject _blt = Instantiate(_projectile, closerGunPoint, Quaternion.identity);
+        lastArm = closerGunPoint;
         Bullet bScript = _blt.AddComponent<Bullet>();
         //debug ray;
         Vector3 StartPos = _blt.transform.position;
@@ -189,6 +195,7 @@ public class BasicEnemy : MonoBehaviour
     public void stop()
     {
         StopAllCoroutines();
+        
     }
     void OnDrawGizmos()
     {

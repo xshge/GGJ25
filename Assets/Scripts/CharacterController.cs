@@ -106,6 +106,10 @@ public class CharacterController : MonoBehaviour
         _animate.SetBool("Hit", true);
         _pRB.useGravity = false;
         _pRB.isKinematic = true;
+
+        //reset enemies states
+        EventManager._resetsEn(EnState.Sweeping);
+
         yield return new WaitForSeconds(1f);
         daisy.enabled = false;
         yield return new WaitForSeconds(1.5f);
