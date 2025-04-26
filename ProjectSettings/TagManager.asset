@@ -9,6 +9,7 @@ TagManager:
   - OilBubble
   - obstacle
   - LevelChange
+  - spawn
   layers:
   - Default
   - TransparentFX
