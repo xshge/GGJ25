@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class CharacterController : MonoBehaviour
 {
     Vector3 MoveVector;
-    Rigidbody _pRB;
+    public Rigidbody _pRB;
     float timer = 0f;
     [SerializeField] private float _sideMoveForce;
     [SerializeField] private float _upwardForce;
@@ -38,8 +38,8 @@ public class CharacterController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.W) && timer <= 0f)
         {
-            timer = 0.75f;
-            _pRB.AddForce(new Vector3(0, 1) * _upwardForce, ForceMode.Impulse);
+            timer = 1f; // changed timer from .75f to 1f 
+            _pRB.AddForce(new Vector3(0, 1) * _upwardForce * levelChange, ForceMode.Impulse); //added levelChange in case we decide to include that again
             _animate.SetBool("up", true);
             DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Floating);
         }
@@ -51,6 +51,12 @@ public class CharacterController : MonoBehaviour
         if(_pRB.velocity.y < 0 && DaisyStateMachine.daisyState != BubbleGirlState.Falling)
         {
             DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Falling);
+            
+        }
+
+        if(_pRB.velocity.x == 0 && _pRB.velocity.y == 0)
+        {
+            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         }
 
     }
@@ -77,7 +83,8 @@ public class CharacterController : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("obstacle"))
         {   
@@ -99,6 +106,10 @@ public class CharacterController : MonoBehaviour
         _animate.SetBool("Hit", true);
         _pRB.useGravity = false;
         _pRB.isKinematic = true;
+
+        //reset enemies states
+        EventManager._resetsEn(EnState.Sweeping);
+
         yield return new WaitForSeconds(1f);
         daisy.enabled = false;
         yield return new WaitForSeconds(1.5f);
