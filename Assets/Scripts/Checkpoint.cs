@@ -13,7 +13,7 @@ public class Checkpoint : MonoBehaviour
         EventManager.restoreCheckPoint += ReturnToCheckpoint;
         rb = GetComponentInParent<Rigidbody>();
         _animate = GetComponent<Animator>();
-        currentCheckpoint = transform.position;
+        currentCheckpoint = transform.parent.position;
     }
     void SaveCheckpoint(Vector3 checkpoint)
     {
@@ -23,10 +23,15 @@ public class Checkpoint : MonoBehaviour
     // called when player presses a button like "R"
     void ReturnToCheckpoint(SpriteRenderer ply)
     {
-        _animate.SetBool("Hit", false);
+        //_animate.SetBool("Hit", false);
         ply.enabled = true;
         transform.parent.position = currentCheckpoint;
         rb.isKinematic = false;
         rb.useGravity = true;
+    }
+    private void OnDisable()
+    {
+        EventManager.saveCheckPoint -= SaveCheckpoint;
+        EventManager.restoreCheckPoint -= ReturnToCheckpoint;
     }
 }

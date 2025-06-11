@@ -6,6 +6,7 @@ public class OilBubble : MonoBehaviour
 {
     public int HP;
     public Transform animalTransform;
+    public Sprite cleanAnim;
     public void ShrinkOil()
     {
         HP--;
@@ -27,6 +28,9 @@ public class OilBubble : MonoBehaviour
         yield return new WaitForSeconds(.15f);
 
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Transform p = transform.parent;
+        SpriteRenderer ren= p.GetComponent<SpriteRenderer>();
+        ren.sprite = cleanAnim;
 
         yield return new WaitForSeconds(.4f);
 
