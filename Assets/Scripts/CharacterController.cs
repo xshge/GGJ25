@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class CharacterController : MonoBehaviour
     Animator _animate;
     public SpriteRenderer daisy;
     float levelChange = 1;
-
+    SpriteRenderer _dSprite;
 
     public DaisyStates DaisyStateMachine;
 
@@ -24,11 +25,21 @@ public class CharacterController : MonoBehaviour
     {
         _pRB = GetComponent<Rigidbody>();
         _animate = realDaisy.GetComponent<Animator>();
-
+        _dSprite = realDaisy.GetComponent<SpriteRenderer>();
+      
     }
     void Update()
     {
         timer -= Time.deltaTime;
+        //handle flipping
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            _dSprite.flipX = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            _dSprite.flipX = false;
+        }
 
         if (_pRB != null)
         {
@@ -62,9 +73,14 @@ public class CharacterController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
+      
+     
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
+           
             // Debug.Log(MoveVector); all the actuall physic movement
+            //Debug.Log("pressing: " +  currentKey + Enum.GetName(typeof(KeyCode), currentKey));
             if (_pRB.useGravity)
             {
                 if (isunderWater)
@@ -80,6 +96,8 @@ public class CharacterController : MonoBehaviour
         else
         {
             _animate.SetBool("moving", false);
+           
+
         }
 
     }

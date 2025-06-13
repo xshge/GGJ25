@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4512538750147040756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.44, y: 0, z: 0}
+  m_LocalPosition: {x: -26.43, y: 0.32, z: 0}
   m_LocalScale: {x: 3.6766095, y: 3.6766095, z: 3.6766095}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -158,8 +158,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5140872455664604150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.067728, y: 5.067728, z: 5.067728}
+  m_LocalPosition: {x: -0.33, y: 0.2, z: 0}
+  m_LocalScale: {x: 12.503397, y: 12.955039, z: 5.4968896}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6992600254214727340}
@@ -284,8 +284,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6992600254214727338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.45, y: 0, z: 0}
-  m_LocalScale: {x: 0.775, y: 0.7625, z: 1}
+  m_LocalPosition: {x: -26.302, y: 0.218, z: 0}
+  m_LocalScale: {x: 0.27733874, y: 0.27286556, z: 0.35785645}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6992600255379391882}
@@ -335,7 +335,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0502eb7c0a4253c4397c53b956ef0e61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70875299b2820884ab872b0d662b021a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -390,9 +390,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014100432, y: 0.028200984}
+  m_Offset: {x: -0.31, y: 0.23779942}
   serializedVersion: 2
-  m_Radius: 1.8054789
+  m_Radius: 5.907282
 --- !u!95 &6992600254214727330
 Animator:
   serializedVersion: 5
@@ -403,7 +403,7 @@ Animator:
   m_GameObject: {fileID: 6992600254214727338}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 59cc5f0f75cc14e4eb806c52c05b98e9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 55f850de36840d44a97879c2ca48e785, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 6992600255303590140}
   m_Layer: 3
   m_Name: BubbleGirl-in3D
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -476,7 +476,7 @@ Rigidbody:
   m_GameObject: {fileID: 6992600255303590141}
   serializedVersion: 2
   m_Mass: 1.18
-  m_Drag: 0
+  m_Drag: 0.4
   m_AngularDrag: 0.24
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -494,9 +494,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.4455339
-  m_Height: 2.8622718
+  m_Height: 3.23583
   m_Direction: 1
-  m_Center: {x: -26.4543, y: 0.036647502, z: 0}
+  m_Center: {x: -26.4543, y: 0.22342701, z: 0}
 --- !u!114 &6992600255303590140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pRB: {fileID: 0}
   _sideMoveForce: 10
-  _upwardForce: 20
+  _upwardForce: 15
   isunderWater: 1
   realDaisy: {fileID: 6992600254214727338}
   daisy: {fileID: 6992600254214727341}
@@ -589,7 +589,7 @@ Camera:
   m_GameObject: {fileID: 6992600255379391883}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.12941177, g: 0.18823531, b: 0.49411768, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
