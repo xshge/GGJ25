@@ -30,6 +30,9 @@ public class Bubble_Shooter : MonoBehaviour
     public float timer;
     public Slider slideCharger;
 
+    //UI
+    public GameObject UISlider;
+
     Animator _animate;
 
     DaisyStates DaisyStateMachine;
@@ -57,6 +60,10 @@ public class Bubble_Shooter : MonoBehaviour
             timer += Time.deltaTime;
             slideCharger.value = timer;
             _animate.SetBool("Bubbling", true);
+            CalculateDirection();
+            //slideCharger.gameObject.transform.position = directionBasedSpawner;
+
+            Debug.Log("mouse is held");
         }
     }
 
@@ -69,14 +76,8 @@ public class Bubble_Shooter : MonoBehaviour
         return ray.GetPoint(distance);
     }
 
-    void LaunchBubble()
+    void CalculateDirection()
     {
-        //maxes out the time a bubble can be held for at 3 seconds
-        if (timer > 3)
-        {
-            timer = 3;
-        }
-
         //adjusting mouse position vector, since the camera's a little messed up
         mousePos += new Vector2(-.2f, 5.35f);
 
@@ -90,6 +91,51 @@ public class Bubble_Shooter : MonoBehaviour
         directionBasedSpawner = new Vector3((float)(bDNormalized.x * 4.64), (float)(bDNormalized.y * 4.64), 0);
 
         Debug.Log("bubble Direction: " + bubbleDirection);
+
+        //calculating the angle the mouse is based on the center of daisy
+        double radians = System.Math.Atan2(bDNormalized.x, bDNormalized.y);
+        double angle = radians * (180 / System.Math.PI);
+
+        //adjusting the slider's position based on where the bubble will launch
+        for (int i = 0; i < 3; i++)
+        {
+            if (angle >= (60*i) && angle < ((60*i)+60)) 
+            { 
+                UISlider.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(0, 0, -(30 + (30*i)))); 
+            }
+            else if (angle < -(60 * i) && angle >= ((60 * i) + 60))
+            {
+                UISlider.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(0, 0, (30 + (30 * i))));
+            }
+        }
+
+
+        Debug.Log("mouse angle: " + angle);
+    }
+
+    void LaunchBubble()
+    {
+        //maxes out the time a bubble can be held for at 3 seconds
+        if (timer > 3)
+        {
+            timer = 3;
+        }
+
+        CalculateDirection();
+
+        ////adjusting mouse position vector, since the camera's a little messed up
+        //mousePos += new Vector2(-.2f, 5.35f);
+
+        ////calculates the direction the bubble should travel in
+        //bubbleDirection = mousePos - playerPos;
+
+        //Debug.Log("mousePos: " + mousePos);
+
+        //Vector2 bDNormalized = bubbleDirection.normalized;
+
+        //directionBasedSpawner = new Vector3((float)(bDNormalized.x * 4.64), (float)(bDNormalized.y * 4.64), 0);
+
+        //Debug.Log("bubble Direction: " + bubbleDirection);
 
         //summons the bubble
         GameObject newBubble = Instantiate(bubblePrefab, spawnerTransform.position + directionBasedSpawner, Quaternion.identity, transform);
