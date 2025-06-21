@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 13998143}
   m_Layer: 0
   m_Name: node_704ea65c_be33_417a_b102_79b203306bd2
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6705,7 +6705,7 @@ GameObject:
   - component: {fileID: 210452799}
   m_Layer: 0
   m_Name: node_408224ba_edc0_4961_a7b5_e9a64e2e1954
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14219,7 +14219,7 @@ GameObject:
   - component: {fileID: 422790349}
   m_Layer: 0
   m_Name: node_704ea65c_be33_417a_b102_79b203306bd2
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17998,7 +17998,7 @@ GameObject:
   - component: {fileID: 556432661}
   m_Layer: 0
   m_Name: node_704ea65c_be33_417a_b102_79b203306bd2
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19086,7 +19086,7 @@ GameObject:
   - component: {fileID: 589279657}
   m_Layer: 0
   m_Name: node_e7b8690a_7d02_4dd5_b462_e9485bf81d04
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23767,7 +23767,7 @@ GameObject:
   - component: {fileID: 711716975}
   m_Layer: 0
   m_Name: node_704ea65c_be33_417a_b102_79b203306bd2
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24493,7 +24493,7 @@ GameObject:
   - component: {fileID: 730509828}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26959,7 +26959,7 @@ GameObject:
   - component: {fileID: 805930771}
   m_Layer: 0
   m_Name: node_e7b8690a_7d02_4dd5_b462_e9485bf81d04
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28092,7 +28092,7 @@ GameObject:
   - component: {fileID: 841272801}
   m_Layer: 0
   m_Name: node_408224ba_edc0_4961_a7b5_e9a64e2e1954
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34893,7 +34893,7 @@ GameObject:
   - component: {fileID: 1052008854}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38975,7 +38975,7 @@ GameObject:
   - component: {fileID: 1158867552}
   m_Layer: 0
   m_Name: node_408224ba_edc0_4961_a7b5_e9a64e2e1954
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47149,7 +47149,7 @@ GameObject:
   - component: {fileID: 1377670474}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49440,7 +49440,7 @@ GameObject:
   - component: {fileID: 1444410563}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192_mesh0
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51520,7 +51520,7 @@ GameObject:
   - component: {fileID: 1501104749}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192_mesh0
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51877,6 +51877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1517232333}
+  - component: {fileID: 1517232334}
   m_Layer: 0
   m_Name: sea urchin (6)
   m_TagString: obstacle
@@ -51900,6 +51901,19 @@ Transform:
   m_Father: {fileID: 2070468836}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: -11.301, y: -88.046, z: 0.841}
+--- !u!65 &1517232334
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517232332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.036784545, y: 0.055333015, z: 0.034040928}
+  m_Center: {x: 0.019999592, y: -0.2866362, z: 0.4672822}
 --- !u!1 &1518030463
 GameObject:
   m_ObjectHideFlags: 0
@@ -53314,7 +53328,7 @@ GameObject:
   - component: {fileID: 1554610317}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192_mesh0
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55162,7 +55176,7 @@ GameObject:
   - component: {fileID: 1594652231}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192_mesh0
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56214,7 +56228,7 @@ GameObject:
   - component: {fileID: 1618484935}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192_mesh0
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57340,7 +57354,7 @@ GameObject:
   - component: {fileID: 1649547880}
   m_Layer: 0
   m_Name: node_e7b8690a_7d02_4dd5_b462_e9485bf81d04
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59329,7 +59343,7 @@ GameObject:
   - component: {fileID: 1706847790}
   m_Layer: 0
   m_Name: node_e7b8690a_7d02_4dd5_b462_e9485bf81d04
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63533,7 +63547,7 @@ GameObject:
   - component: {fileID: 1818817416}
   m_Layer: 0
   m_Name: node_408224ba_edc0_4961_a7b5_e9a64e2e1954
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67706,7 +67720,7 @@ GameObject:
   - component: {fileID: 1929353583}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192_mesh0
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70818,7 +70832,7 @@ GameObject:
   - component: {fileID: 2005415738}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75988,7 +76002,7 @@ GameObject:
   - component: {fileID: 9185630522412134835}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192_mesh0
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
