@@ -104,8 +104,10 @@ public class CharacterController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log("name: " + collision.transform.name + "tag: " + collision.transform.tag);
         if (collision.gameObject.CompareTag("obstacle"))
         {   
+           
             DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Dead);
             StartCoroutine(Dying());
         }
