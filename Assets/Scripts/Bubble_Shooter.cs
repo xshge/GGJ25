@@ -5,12 +5,6 @@ using UnityEngine.UI;
 
 public class Bubble_Shooter : MonoBehaviour
 {
-    //TOMORROW: ADD COLLISION DETECTION ON BUBBLES, THE CLEANING MECHANIC, ETC
-
-
-    //for testing purposes, whether we're having the bubble shoot straight up or based on where the player aims
-    public bool BubbleAimable;
-
     // instantiation parameters
     public GameObject bubblePrefab;
     public Transform spawnerTransform;
@@ -40,6 +34,7 @@ public class Bubble_Shooter : MonoBehaviour
     {
         _animate = GetComponent<Animator>();
         DaisyStateMachine = GetComponent<DaisyStates>();
+        UISlider.SetActive(false);
     }
     void Update()
     {
@@ -51,11 +46,13 @@ public class Bubble_Shooter : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             LaunchBubble();
+            UISlider.SetActive(false);
         }
 
         //checks if the left mouse button is being held down
         if (Input.GetMouseButton(0))
         {
+            UISlider.SetActive(true);
             DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Shooting);
             timer += Time.deltaTime;
             slideCharger.value = timer;
@@ -84,7 +81,7 @@ public class Bubble_Shooter : MonoBehaviour
         //calculates the direction the bubble should travel in
         bubbleDirection = mousePos - playerPos;
 
-        Debug.Log("mousePos: " + mousePos);
+        //Debug.Log("mousePos: " + mousePos);
 
         Vector2 bDNormalized = bubbleDirection.normalized;
 
@@ -97,20 +94,33 @@ public class Bubble_Shooter : MonoBehaviour
         double angle = radians * (180 / System.Math.PI);
 
         //adjusting the slider's position based on where the bubble will launch
-        for (int i = 0; i < 3; i++)
+        // dont judge that im not using a for loop, the rotation on UI objects is like. off by 90 degrees and flipped over the horizontal access :skull:
+
+        if(angle >= 0 && angle < 60)
         {
-            if (angle >= (60*i) && angle < ((60*i)+60)) 
-            { 
-                UISlider.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(0, 0, -(30 + (30*i)))); 
-            }
-            else if (angle < -(60 * i) && angle >= ((60 * i) + 60))
-            {
-                UISlider.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(0, 0, (30 + (30 * i))));
-            }
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 60);
+        }
+        else if (angle >= 60 && angle < 120)
+        {
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (angle >= 120 && angle <= 180)
+        {
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 300);
         }
 
-
-        Debug.Log("mouse angle: " + angle);
+        else if (angle >= -60 && angle < 0)
+        {
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 120);
+        }
+        else if (angle >= -120 && angle < -60)
+        {
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 180);
+        }
+        else if (angle >= -180 && angle < -120)
+        {
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 240);
+        }
     }
 
     void LaunchBubble()
@@ -141,14 +151,8 @@ public class Bubble_Shooter : MonoBehaviour
         GameObject newBubble = Instantiate(bubblePrefab, spawnerTransform.position + directionBasedSpawner, Quaternion.identity, transform);
 
         //launches the bubble
-        if (BubbleAimable)
-        {
-            newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection.normalized * launchForce * timer, ForceMode2D.Impulse);
-        }
-        else // if the bubble needs to shoot straight up
-        {
-            newBubble.GetComponent<Rigidbody2D>().AddForce( new Vector2(0,launchForce * timer), ForceMode2D.Impulse);
-        }
+         newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection.normalized * launchForce * timer, ForceMode2D.Impulse);
+
         //stop animation;
         _animate.SetBool("Bubbling", false);
         //resets timer
