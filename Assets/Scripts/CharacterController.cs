@@ -1,23 +1,28 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CharacterController : MonoBehaviour
 {
-    Vector3 MoveVector;
+    Vector3 MoveVector,ogCamPos;
+    string currPos, lastPos;
     public Rigidbody _pRB;
+    private GameObject _camera;
     float timer = 0f;
     [SerializeField] private float _sideMoveForce;
     [SerializeField] private float _upwardForce;
     public bool isunderWater = false;
-
+    private Vector3 camVelocity = Vector3.zero;
     public GameObject realDaisy;
     Animator _animate;
     public SpriteRenderer daisy;
     float levelChange = 1;
     SpriteRenderer _dSprite;
+    
 
     public DaisyStates DaisyStateMachine;
 
@@ -26,18 +31,22 @@ public class CharacterController : MonoBehaviour
         _pRB = GetComponent<Rigidbody>();
         _animate = realDaisy.GetComponent<Animator>();
         _dSprite = realDaisy.GetComponent<SpriteRenderer>();
-      
+        _camera = GameObject.FindGameObjectWithTag("MainCamera");
+        ogCamPos = _camera.transform.localPosition;
     }
     void Update()
     {
         timer -= Time.deltaTime;
+      
         //handle flipping
         if (Input.GetKeyDown(KeyCode.D))
         {
+           currPos = KeyCode.D.ToString();
             _dSprite.flipX = true;
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
+            currPos = KeyCode.A.ToString();
             _dSprite.flipX = false;
         }
 
@@ -46,17 +55,25 @@ public class CharacterController : MonoBehaviour
             //calculate vector and updating it.
             MoveVector = new Vector3(Input.GetAxis("Horizontal"), 0).normalized;
 
+
         }
+
+
         if (Input.GetKeyDown(KeyCode.W) && timer <= 0f)
         {
             timer = 1f; // changed timer from .75f to 1f 
             _pRB.AddForce(new Vector3(0, 1) * _upwardForce * levelChange, ForceMode.Impulse); //added levelChange in case we decide to include that again
             _animate.SetBool("up", true);
+            currPos = KeyCode.W.ToString();
             DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Floating);
+
+
+           
         }
         else
         {
             _animate.SetBool("up", false);
+            
         }
 
         if(_pRB.velocity.y < 0 && DaisyStateMachine.daisyState != BubbleGirlState.Falling)
@@ -69,7 +86,14 @@ public class CharacterController : MonoBehaviour
         {
             DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         }
+        
 
+        //updating last direction 
+        if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            lastPos = currPos;
+
+        }
     }
     private void FixedUpdate()
     {
@@ -100,8 +124,43 @@ public class CharacterController : MonoBehaviour
 
         }
 
+
+            moveCamera();
+        //Debug.Log("mag" + _pRB.velocity.magnitude);
+     
+     
+        
     }
 
+    void moveCamera()
+    {
+       
+        Vector3 direction = determineDirection();
+        float dist = 0.0001f;
+        Vector3 newPos = transform.localPosition + (direction * dist);
+        newPos = new Vector3(newPos.x, newPos.y, ogCamPos.z);
+        Debug.Log("force traveld" + dist);
+        _camera.transform.localPosition = Vector3.SmoothDamp(_camera.transform.localPosition, newPos, ref camVelocity, 2f);
+    }
+    Vector3 determineDirection()
+    {   
+        Vector3 dit = Vector3.zero;
+        switch (currPos)
+        {
+            case "A":
+                dit = - Vector3.right;
+                break;
+            case "D":
+                dit = Vector3.right;
+                break;
+            case "W":
+                dit = Vector3.up;
+                break;
+            default: return Vector3.zero;
+        }
+
+        return dit;
+    }
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log("name: " + collision.transform.name + "tag: " + collision.transform.tag);

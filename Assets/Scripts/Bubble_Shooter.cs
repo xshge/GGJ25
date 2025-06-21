@@ -83,7 +83,7 @@ public class Bubble_Shooter : MonoBehaviour
         //calculates the direction the bubble should travel in
         bubbleDirection = mousePos - playerPos;
 
-        Debug.Log("mousePos: " + mousePos);
+        //Debug.Log("mousePos: " + mousePos);
 
         Vector2 bDNormalized = bubbleDirection.normalized;
 
