@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6992600255303590129}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6224202904477199389
 MeshFilter:
@@ -163,7 +163,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6992600254214727340}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &980891071672616029
 SpriteRenderer:
@@ -288,11 +288,10 @@ Transform:
   m_LocalScale: {x: 0.27733874, y: 0.27286556, z: 0.35785645}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6992600255379391882}
   - {fileID: 6992600255356418217}
   - {fileID: 5024146960142165041}
   m_Father: {fileID: 6992600255303590129}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6992600254214727341
 SpriteRenderer:
@@ -462,6 +461,7 @@ Transform:
   m_LocalScale: {x: 2.4858947, y: 2.510904, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6992600255379391882}
   - {fileID: 6992600254214727340}
   - {fileID: 120467079188920362}
   m_Father: {fileID: 0}
@@ -545,7 +545,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6992600254214727340}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6992600255379391883
 GameObject:
@@ -573,11 +573,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6992600255379391883}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 11.01, z: -31.71}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -26.35747, y: 3.2222505, z: -11.347628}
+  m_LocalScale: {x: 0.27733877, y: 0.27286556, z: 0.35785645}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6992600254214727340}
+  m_Father: {fileID: 6992600255303590129}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &6992600255379391880

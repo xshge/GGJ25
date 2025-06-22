@@ -111,7 +111,7 @@ public class CharacterController : MonoBehaviour
                 {
                     // _pRB.velocity = MoveVector * levelChange * (_sideMoveForce/2);
                     _pRB.AddForce(MoveVector * levelChange * (_sideMoveForce), ForceMode.Force);
-                    _pRB.AddForce(Vector3.up * 5f);
+                    //_pRB.AddForce(Vector3.up * 10f);
                 }
 
             }
@@ -136,11 +136,11 @@ public class CharacterController : MonoBehaviour
     {
        
         Vector3 direction = determineDirection();
-        float dist = 0.0001f;
-        Vector3 newPos = transform.localPosition + (direction * dist);
+        float dist = _pRB.velocity.magnitude * 0.25f;
+        Vector3 newPos = realDaisy.transform.localPosition + (direction * dist);
         newPos = new Vector3(newPos.x, newPos.y, ogCamPos.z);
-        Debug.Log("force traveld" + dist);
-        _camera.transform.localPosition = Vector3.SmoothDamp(_camera.transform.localPosition, newPos, ref camVelocity, 2f);
+       
+        _camera.transform.localPosition = Vector3.SmoothDamp(_camera.transform.localPosition, newPos, ref camVelocity, 0.75f);
     }
     Vector3 determineDirection()
     {   

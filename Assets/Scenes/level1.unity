@@ -38505,15 +38505,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6992600255379391880, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
       propertyPath: field of view
-      value: 90
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6992600255379391882, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.65
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 6992600255379391882, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.42
+      value: -22.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
