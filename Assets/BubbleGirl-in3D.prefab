@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9098039, g: 0.32156864, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -186,8 +186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: -62.109, y: 0}
+  m_SizeDelta: {x: -126.604, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4512538750147040756
 GameObject:
@@ -579,8 +579,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: -60.917, y: -0}
+  m_SizeDelta: {x: -126.604, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6992600254214727338
 GameObject:
@@ -690,8 +690,16 @@ MonoBehaviour:
   bubblePrefab: {fileID: 1457248824781827881, guid: 75c421bc1f4362846bc34809f467cfe5, type: 3}
   spawnerTransform: {fileID: 6992600255356418217}
   directionBasedSpawner: {x: 0, y: 0, z: 0}
-  launchForce: 1.5
+  sliderPositions:
+  - {x: 2.88, y: 4.09, z: 0}
+  - {x: 5.04, y: 0.29, z: 0}
+  - {x: 3, y: -3.97, z: 0}
+  - {x: -2.33, y: 4.09, z: 0}
+  - {x: -4.49, y: 0.29, z: 0}
+  - {x: -2.45, y: -3.97, z: 0}
+  launchForce: 3
   timer: 0
+  timerMax: 2
   slideCharger: {fileID: 4632902821977846891}
   UISlider: {fileID: 8397636315126259077}
 --- !u!114 &6992600254214727329
@@ -997,7 +1005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.19968154, y: 0.29}
+  m_AnchoredPosition: {x: 0.55, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.03, y: 0.43}
 --- !u!114 &4632902821977846891
@@ -1086,8 +1094,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: -0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -60.917, y: -0}
+  m_SizeDelta: {x: -121.833, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8148289050842097753
 CanvasRenderer:

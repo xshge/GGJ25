@@ -17,11 +17,14 @@ public class Bubble_Shooter : MonoBehaviour
     private Vector2 playerPos;
     private Vector2 mousePos;
 
+    [SerializeField] private Vector3[] sliderPositions;
+
     //bubble launch force
     public float launchForce;
 
     //checking how long the button has been held
     public float timer;
+    public float timerMax;
     public Slider slideCharger;
 
     //UI
@@ -35,6 +38,7 @@ public class Bubble_Shooter : MonoBehaviour
         _animate = GetComponent<Animator>();
         DaisyStateMachine = GetComponent<DaisyStates>();
         UISlider.SetActive(false);
+        slideCharger.maxValue = timerMax;
     }
     void Update()
     {
@@ -99,36 +103,42 @@ public class Bubble_Shooter : MonoBehaviour
         if(angle >= 0 && angle < 60)
         {
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 60);
+            UISlider.transform.localPosition = sliderPositions[0];
         }
         else if (angle >= 60 && angle < 120)
         {
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 0);
+            UISlider.transform.localPosition = sliderPositions[1];
         }
         else if (angle >= 120 && angle <= 180)
         {
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 300);
+            UISlider.transform.localPosition = sliderPositions[2];
         }
 
         else if (angle >= -60 && angle < 0)
         {
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 120);
+            UISlider.transform.localPosition = sliderPositions[3];
         }
         else if (angle >= -120 && angle < -60)
         {
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 180);
+            UISlider.transform.localPosition= sliderPositions[4];
         }
         else if (angle >= -180 && angle < -120)
         {
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 240);
+            UISlider.transform.localPosition= sliderPositions[5];
         }
     }
 
     void LaunchBubble()
     {
         //maxes out the time a bubble can be held for at 3 seconds
-        if (timer > 3)
+        if (timer > timerMax)
         {
-            timer = 3;
+            timer = timerMax;
         }
 
         CalculateDirection();
