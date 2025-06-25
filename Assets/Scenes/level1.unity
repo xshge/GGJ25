@@ -3785,17 +3785,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128318499}
   m_Mesh: {fileID: -4026644384297347843, guid: a1c84f9115637fb4ab3e22a05aa0d9f0, type: 3}
---- !u!114 &132598357 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4632902821977846891, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
-  m_PrefabInstance: {fileID: 1149212008}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &132736029
 GameObject:
   m_ObjectHideFlags: 0
@@ -36730,26 +36719,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2632492285554159017, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1442762934}
     - target: {fileID: 4499222672209363344, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5217039988134989394, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5217039988134989394, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 6992600254214727328, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
-      propertyPath: slideCharger
-      value: 
-      objectReference: {fileID: 132598357}
     - target: {fileID: 6992600255303590129, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -47156,11 +47129,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438979997}
   m_Mesh: {fileID: -6138787480799432094, guid: a1c84f9115637fb4ab3e22a05aa0d9f0, type: 3}
---- !u!20 &1442762934 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 6992600255379391880, guid: a8bee73ffe6d1cc4dbdb9a807f651583, type: 3}
-  m_PrefabInstance: {fileID: 1149212008}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1443472629
 GameObject:
   m_ObjectHideFlags: 0
