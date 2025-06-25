@@ -49,6 +49,7 @@ public class DaisyStates : MonoBehaviour
         if(daisyState == BubbleGirlState.Falling)
         {
             characterController._pRB.drag = 0;
+            characterController._pRB.velocity = new Vector3(characterController._pRB.velocity.x, -8, characterController._pRB.velocity.z);
         }
         else
         {
