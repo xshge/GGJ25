@@ -5,12 +5,6 @@ using UnityEngine.UI;
 
 public class Bubble_Shooter : MonoBehaviour
 {
-    //TOMORROW: ADD COLLISION DETECTION ON BUBBLES, THE CLEANING MECHANIC, ETC
-
-
-    //for testing purposes, whether we're having the bubble shoot straight up or based on where the player aims
-    public bool BubbleAimable;
-
     // instantiation parameters
     public GameObject bubblePrefab;
     public Transform spawnerTransform;
@@ -23,12 +17,18 @@ public class Bubble_Shooter : MonoBehaviour
     private Vector2 playerPos;
     private Vector2 mousePos;
 
+    [SerializeField] private Vector3[] sliderPositions;
+
     //bubble launch force
     public float launchForce;
 
     //checking how long the button has been held
     public float timer;
+    public float timerMax;
     public Slider slideCharger;
+
+    //UI
+    public GameObject UISlider;
 
     Animator _animate;
 
@@ -37,6 +37,8 @@ public class Bubble_Shooter : MonoBehaviour
     {
         _animate = GetComponent<Animator>();
         DaisyStateMachine = GetComponent<DaisyStates>();
+        UISlider.SetActive(false);
+        slideCharger.maxValue = timerMax;
     }
     void Update()
     {
@@ -48,15 +50,21 @@ public class Bubble_Shooter : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             LaunchBubble();
+            UISlider.SetActive(false);
         }
 
         //checks if the left mouse button is being held down
         if (Input.GetMouseButton(0))
         {
+            UISlider.SetActive(true);
             DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Shooting);
             timer += Time.deltaTime;
             slideCharger.value = timer;
             _animate.SetBool("Bubbling", true);
+            CalculateDirection();
+            //slideCharger.gameObject.transform.position = directionBasedSpawner;
+
+            Debug.Log("mouse is held");
         }
     }
 
@@ -69,21 +77,15 @@ public class Bubble_Shooter : MonoBehaviour
         return ray.GetPoint(distance);
     }
 
-    void LaunchBubble()
+    void CalculateDirection()
     {
-        //maxes out the time a bubble can be held for at 3 seconds
-        if (timer > 3)
-        {
-            timer = 3;
-        }
-
         //adjusting mouse position vector, since the camera's a little messed up
         mousePos += new Vector2(-.2f, 5.35f);
 
         //calculates the direction the bubble should travel in
         bubbleDirection = mousePos - playerPos;
 
-        Debug.Log("mousePos: " + mousePos);
+        //Debug.Log("mousePos: " + mousePos);
 
         Vector2 bDNormalized = bubbleDirection.normalized;
 
@@ -91,18 +93,76 @@ public class Bubble_Shooter : MonoBehaviour
 
         Debug.Log("bubble Direction: " + bubbleDirection);
 
+        //calculating the angle the mouse is based on the center of daisy
+        double radians = System.Math.Atan2(bDNormalized.x, bDNormalized.y);
+        double angle = radians * (180 / System.Math.PI);
+
+        //adjusting the slider's position based on where the bubble will launch
+        // dont judge that im not using a for loop, the rotation on UI objects is like. off by 90 degrees and flipped over the horizontal access :skull:
+
+        if(angle >= 0 && angle < 60)
+        {
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 60);
+            UISlider.transform.localPosition = sliderPositions[0];
+        }
+        else if (angle >= 60 && angle < 120)
+        {
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 0);
+            UISlider.transform.localPosition = sliderPositions[1];
+        }
+        else if (angle >= 120 && angle <= 180)
+        {
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 300);
+            UISlider.transform.localPosition = sliderPositions[2];
+        }
+
+        else if (angle >= -60 && angle < 0)
+        {
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 120);
+            UISlider.transform.localPosition = sliderPositions[3];
+        }
+        else if (angle >= -120 && angle < -60)
+        {
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 180);
+            UISlider.transform.localPosition= sliderPositions[4];
+        }
+        else if (angle >= -180 && angle < -120)
+        {
+            UISlider.transform.localEulerAngles = new Vector3(0, 0, 240);
+            UISlider.transform.localPosition= sliderPositions[5];
+        }
+    }
+
+    void LaunchBubble()
+    {
+        //maxes out the time a bubble can be held for at 3 seconds
+        if (timer > timerMax)
+        {
+            timer = timerMax;
+        }
+
+        CalculateDirection();
+
+        ////adjusting mouse position vector, since the camera's a little messed up
+        //mousePos += new Vector2(-.2f, 5.35f);
+
+        ////calculates the direction the bubble should travel in
+        //bubbleDirection = mousePos - playerPos;
+
+        //Debug.Log("mousePos: " + mousePos);
+
+        //Vector2 bDNormalized = bubbleDirection.normalized;
+
+        //directionBasedSpawner = new Vector3((float)(bDNormalized.x * 4.64), (float)(bDNormalized.y * 4.64), 0);
+
+        //Debug.Log("bubble Direction: " + bubbleDirection);
+
         //summons the bubble
         GameObject newBubble = Instantiate(bubblePrefab, spawnerTransform.position + directionBasedSpawner, Quaternion.identity, transform);
 
         //launches the bubble
-        if (BubbleAimable)
-        {
-            newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection.normalized * launchForce * timer, ForceMode2D.Impulse);
-        }
-        else // if the bubble needs to shoot straight up
-        {
-            newBubble.GetComponent<Rigidbody2D>().AddForce( new Vector2(0,launchForce * timer), ForceMode2D.Impulse);
-        }
+         newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection.normalized * launchForce * timer, ForceMode2D.Impulse);
+
         //stop animation;
         _animate.SetBool("Bubbling", false);
         //resets timer
