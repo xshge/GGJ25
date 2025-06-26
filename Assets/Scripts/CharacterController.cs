@@ -61,7 +61,7 @@ public class CharacterController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && timer <= 0f)
         {
-            timer = 1f; // changed timer from .75f to 1f 
+            timer = 0.75f; // changed timer from .75f to 1f 
             _pRB.AddForce(new Vector3(0, 1) * _upwardForce * levelChange, ForceMode.Impulse); //added levelChange in case we decide to include that again
             _animate.SetBool("up", true);
             currPos = KeyCode.W.ToString();
@@ -154,7 +154,7 @@ public class CharacterController : MonoBehaviour
                 dit = Vector3.right;
                 break;
             case "W":
-                dit = Vector3.up;
+                if(timer <= 0) dit = Vector3.up;
                 break;
             default: return Vector3.zero;
         }
@@ -165,8 +165,9 @@ public class CharacterController : MonoBehaviour
     {
         //Debug.Log("name: " + collision.transform.name + "tag: " + collision.transform.tag);
         if (collision.gameObject.CompareTag("obstacle"))
-        {   
-           
+        {
+            //play animation;
+            _animate.SetBool("Hit", true);
             DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Dead);
             StartCoroutine(Dying());
         }
@@ -181,8 +182,7 @@ public class CharacterController : MonoBehaviour
     }
     IEnumerator Dying()
     {
-        //play animation;
-        _animate.SetBool("Hit", true);
+      
         _pRB.useGravity = false;
         _pRB.isKinematic = true;
 
@@ -194,6 +194,7 @@ public class CharacterController : MonoBehaviour
         yield return new WaitForEndOfFrame();
         EventManager._respawn(daisy);
 
+        _animate.SetBool("Hit", false);
         DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         yield break;
     }

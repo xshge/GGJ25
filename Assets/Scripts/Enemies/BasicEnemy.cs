@@ -13,6 +13,7 @@ public class BasicEnemy : MonoBehaviour
     public float RotAngleZ = 45;
     public LayerMask _castLayer;
     public bool isAlive;
+    public Sprite _destroyedSprite;
 
     [SerializeField] private Transform _leftArm, _rigtArm;
     [SerializeField] private BasicEn_States states;
@@ -196,6 +197,8 @@ public class BasicEnemy : MonoBehaviour
     public void stop()
     {
         StopAllCoroutines();
+        _leftArm.gameObject.SetActive(false);
+        _rigtArm.gameObject.SetActive(false);
         
     }
     void OnDrawGizmos()
