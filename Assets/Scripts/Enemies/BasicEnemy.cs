@@ -9,6 +9,7 @@ public class BasicEnemy : MonoBehaviour
     public GameObject _projectile;
     public Transform _origin;
     public float Speed = 1f;
+    public float detectCircSize = 8f;
     public float RotAngleZ = 45;
     public LayerMask _castLayer;
     public bool isAlive;
@@ -40,7 +41,7 @@ public class BasicEnemy : MonoBehaviour
             _origin.rotation = Quaternion.Euler(0, 0, rY);
 
             //cast a circle cast to check for prescence
-            RaycastHit2D result = Physics2D.CircleCast(_origin.position, 5f, transform.right, 1f,_castLayer);
+            RaycastHit2D result = Physics2D.CircleCast(_origin.position, detectCircSize, transform.right, 1f,_castLayer);
             if (result)
             {
                 
@@ -199,6 +200,6 @@ public class BasicEnemy : MonoBehaviour
     }
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(_origin.position - transform.right * 1, 5f);
+        Gizmos.DrawWireSphere(_origin.position - transform.right * 1, detectCircSize);
     }
 }

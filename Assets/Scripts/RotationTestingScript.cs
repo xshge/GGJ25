@@ -18,6 +18,6 @@ public class RotationTestingScript : MonoBehaviour
     }
     void showChekP(Vector3 pos)
     {
-        Debug.Log("pos" + pos);
+        //Debug.Log("pos" + pos);
     }
 }
