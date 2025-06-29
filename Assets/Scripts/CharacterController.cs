@@ -22,7 +22,7 @@ public class CharacterController : MonoBehaviour
     public SpriteRenderer daisy;
     float levelChange = 1;
     SpriteRenderer _dSprite;
-    
+    Camera Cam;
 
     public DaisyStates DaisyStateMachine;
 
@@ -33,6 +33,7 @@ public class CharacterController : MonoBehaviour
         _dSprite = realDaisy.GetComponent<SpriteRenderer>();
         _camera = GameObject.FindGameObjectWithTag("MainCamera");
         ogCamPos = _camera.transform.localPosition;
+        Cam = _camera.GetComponent<Camera>();
     }
     void Update()
     {
@@ -94,6 +95,9 @@ public class CharacterController : MonoBehaviour
             lastPos = currPos;
 
         }
+
+
+        moveCamera();
     }
     private void FixedUpdate()
     {
@@ -125,7 +129,7 @@ public class CharacterController : MonoBehaviour
         }
 
 
-            moveCamera();
+        
         //Debug.Log("mag" + _pRB.velocity.magnitude);
      
      
@@ -134,13 +138,19 @@ public class CharacterController : MonoBehaviour
 
     void moveCamera()
     {
-       
+        float lerpTime = 0.65f;
+      /* Plane[] CameraPlanes = GeometryUtility.CalculateFrustumPlanes(Cam);
+        bool isInView = GeometryUtility.TestPlanesAABB(CameraPlanes, daisy.bounds);*/
+
         Vector3 direction = determineDirection();
         float dist = _pRB.velocity.magnitude * 0.25f;
         Vector3 newPos = realDaisy.transform.localPosition + (direction * dist);
         newPos = new Vector3(newPos.x, newPos.y, ogCamPos.z);
-       
-        _camera.transform.localPosition = Vector3.SmoothDamp(_camera.transform.localPosition, newPos, ref camVelocity, 0.75f);
+        if (DaisyStateMachine.daisyState == BubbleGirlState.Falling)
+        {
+           newPos = new Vector3(realDaisy.transform.localPosition.x, realDaisy.transform.localPosition.y, ogCamPos.z);
+        }       
+        _camera.transform.localPosition = Vector3.SmoothDamp(_camera.transform.localPosition, newPos, ref camVelocity, lerpTime);
     }
     Vector3 determineDirection()
     {   

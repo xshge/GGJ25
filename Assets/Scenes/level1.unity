@@ -3595,7 +3595,7 @@ GameObject:
   - component: {fileID: 117750949}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192_mesh0
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11864,7 +11864,7 @@ GameObject:
   - component: {fileID: 348426511}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192_mesh0
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51357,7 +51357,7 @@ GameObject:
   - component: {fileID: 1508604552}
   m_Layer: 0
   m_Name: node_2ea1d572_99fd_4e42_a37e_5aba59bc7192_mesh0
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
