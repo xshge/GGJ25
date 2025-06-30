@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class BubblePop : MonoBehaviour
 {
+    private void Start()
+    {
+        Invoke("AutoPop", 5f);
+    }
+
+    void AutoPop()
+    {
+        StartCoroutine(PopBubble());
+    }
     private void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("bubble collided");
