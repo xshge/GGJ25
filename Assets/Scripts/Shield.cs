@@ -9,10 +9,12 @@ public class Shield : MonoBehaviour
 
     public GameObject daisyBubble;
     public GameObject daisy3D;
+
+    public AudioSource shieldPopSound;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,6 +34,8 @@ public class Shield : MonoBehaviour
         {
             if (other.gameObject != daisy3D)
             {
+                shieldPopSound.Play();
+
                 daisyStates.ShieldPopped();
                 //Debug.Log(other.transform.name);
                 Debug.Log("popped 3D");
@@ -46,6 +50,7 @@ public class Shield : MonoBehaviour
 
             if (other.gameObject != daisyBubble)
             {
+                shieldPopSound.Play();
                 daisyStates.ShieldPopped();
 
                 Debug.Log("popped 2D");
