@@ -65,8 +65,7 @@ public class Bubble_Shooter : MonoBehaviour
         {
             LaunchBubble();
             UISlider.SetActive(false);
-
-            //changing to attack animation
+            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         }
 
         //checks if the left mouse button is being held down

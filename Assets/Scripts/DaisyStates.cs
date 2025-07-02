@@ -56,9 +56,9 @@ public class DaisyStates : MonoBehaviour
         }
         else if (daisyState == BubbleGirlState.Idle )
         {
-            if(_Danimation.GetCurrentAnimatorStateInfo(0).IsName("Daisy_Idle") != true)
-            {   
-                for(int i = 0; i < _shooter.ids.Length; i++)
+            if (_Danimation.GetCurrentAnimatorStateInfo(0).IsName("Daisy_Idle") != true)
+            {
+                for (int i = 0; i < _shooter.ids.Length; i++)
                 {
                     _Danimation.SetBool(_shooter.ids[i], false);
                 }

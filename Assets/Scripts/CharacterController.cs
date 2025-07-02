@@ -83,10 +83,7 @@ public class CharacterController : MonoBehaviour
             
         }
 
-        if(_pRB.velocity.x == 0 && _pRB.velocity.y == 0)
-        {
-            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
-        }
+       
         
 
         //updating last direction 
@@ -94,6 +91,8 @@ public class CharacterController : MonoBehaviour
         {
             lastPos = currPos;
 
+            //This replace the previous reset to Idle state code with 0 velocity, as that code was conflicting with the animation states. 
+            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         }
 
 
