@@ -29,10 +29,13 @@ public class DaisyStates : MonoBehaviour
 
     public GameObject shield2D;
     public GameObject shield3D;
-
+    Animator _Danimation;
+    Bubble_Shooter _shooter;
     // Start is called before the first frame update
     void Start()
     {
+        _Danimation = GetComponent<Animator>();
+        _shooter = GetComponent<Bubble_Shooter>();
         
     }
 
@@ -50,6 +53,17 @@ public class DaisyStates : MonoBehaviour
         {
             characterController._pRB.drag = 0;
             characterController._pRB.velocity = new Vector3(characterController._pRB.velocity.x, -8, characterController._pRB.velocity.z);
+        }
+        else if (daisyState == BubbleGirlState.Idle )
+        {
+            if(_Danimation.GetCurrentAnimatorStateInfo(0).IsName("Daisy_Idle") != true)
+            {   
+                for(int i = 0; i < _shooter.ids.Length; i++)
+                {
+                    _Danimation.SetBool(_shooter.ids[i], false);
+                }
+                _Danimation.Play("Daisy_Idle");
+            }
         }
         else
         {

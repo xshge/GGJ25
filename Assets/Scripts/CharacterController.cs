@@ -198,14 +198,14 @@ public class CharacterController : MonoBehaviour
 
         //reset enemies states
         EventManager._resetsEn(EnState.Sweeping);
-
+        DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Dead);
         yield return new WaitForSeconds(2f);
         daisy.enabled = false;
         yield return new WaitForEndOfFrame();
         EventManager._respawn(daisy);
-
+        yield return new WaitForEndOfFrame();
         _animate.SetBool("Hit", false);
-        DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
+        //DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         yield break;
     }
     #region Redacted InputSystem code

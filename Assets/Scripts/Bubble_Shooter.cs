@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,8 +31,13 @@ public class Bubble_Shooter : MonoBehaviour
     //UI
     public GameObject UISlider;
 
+    //Animator Clips ids
+    public int[] ids = new int[3];
     Animator _animate;
-
+    
+    string[] _paraNames = { "ChargeU", "ChargeS", "ChargeD" };
+    int currId = 0;
+    SpriteRenderer daisy;
     DaisyStates DaisyStateMachine;
     private void Start()
     {
@@ -39,6 +45,14 @@ public class Bubble_Shooter : MonoBehaviour
         DaisyStateMachine = GetComponent<DaisyStates>();
         UISlider.SetActive(false);
         slideCharger.maxValue = timerMax;
+        for(int i = 0; i < _paraNames.Length; i++)
+        {
+            int id = Animator.StringToHash(_paraNames[i]);
+            ids[i] = id;
+           
+        }
+        daisy = GetComponent<SpriteRenderer>();
+
     }
     void Update()
     {
@@ -51,6 +65,8 @@ public class Bubble_Shooter : MonoBehaviour
         {
             LaunchBubble();
             UISlider.SetActive(false);
+
+            //changing to attack animation
         }
 
         //checks if the left mouse button is being held down
@@ -60,11 +76,19 @@ public class Bubble_Shooter : MonoBehaviour
             DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Shooting);
             timer += Time.deltaTime;
             slideCharger.value = timer;
-            _animate.SetBool("Bubbling", true);
-            CalculateDirection();
+           
+            double _dir  = CalculateDirection();
             //slideCharger.gameObject.transform.position = directionBasedSpawner;
 
-            Debug.Log("mouse is held");
+            /*Debug.Log("mouse is held");*/
+            SetAnimation(_dir);
+
+            //charging animation
+            if(currId != 0)
+            {
+                _animate.SetBool(currId, true);
+            }
+            
         }
     }
 
@@ -77,7 +101,7 @@ public class Bubble_Shooter : MonoBehaviour
         return ray.GetPoint(distance);
     }
 
-    void CalculateDirection()
+    double CalculateDirection()
     {
         //adjusting mouse position vector, since the camera's a little messed up
         mousePos += new Vector2(-.2f, 5.35f);
@@ -91,9 +115,9 @@ public class Bubble_Shooter : MonoBehaviour
 
         directionBasedSpawner = new Vector3((float)(bDNormalized.x * 4.64), (float)(bDNormalized.y * 4.64), 0);
 
-        Debug.Log("bubble Direction: " + bubbleDirection);
+       // Debug.Log("bubble Direction: " + bubbleDirection);
 
-        //calculating the angle the mouse is based on the center of daisy
+        //calculating the UI angle the mouse is based on the center of daisy
         double radians = System.Math.Atan2(bDNormalized.x, bDNormalized.y);
         double angle = radians * (180 / System.Math.PI);
 
@@ -102,37 +126,71 @@ public class Bubble_Shooter : MonoBehaviour
 
         if(angle >= 0 && angle < 60)
         {
+            //top-right
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 60);
             UISlider.transform.localPosition = sliderPositions[0];
         }
         else if (angle >= 60 && angle < 120)
         {
+            // right
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 0);
             UISlider.transform.localPosition = sliderPositions[1];
         }
         else if (angle >= 120 && angle <= 180)
         {
+            // down-right
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 300);
             UISlider.transform.localPosition = sliderPositions[2];
         }
 
         else if (angle >= -60 && angle < 0)
         {
+            //top-left
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 120);
             UISlider.transform.localPosition = sliderPositions[3];
         }
         else if (angle >= -120 && angle < -60)
         {
+            //left
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 180);
             UISlider.transform.localPosition= sliderPositions[4];
         }
         else if (angle >= -180 && angle < -120)
-        {
+        {   //down-left
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 240);
             UISlider.transform.localPosition= sliderPositions[5];
         }
+        Debug.Log(angle);
+        return angle;
     }
 
+    void SetAnimation (double dir)
+    {
+        int angle = (int)dir;
+
+        if(angle > 0)
+        {
+            daisy.flipX = true;
+        }
+        else
+        {
+            daisy.flipX = false;
+        }
+        angle = Mathf.Abs(angle);
+        if(angle >= 0 && angle < 60)
+        {
+            currId = ids[0];
+        }
+        else if (angle >= 60 && angle < 120)
+        {
+            currId = ids[1];
+
+        }
+        else if(angle >= 120 && angle <= 180)
+        {
+            currId = ids[2];
+        }
+    }
     void LaunchBubble()
     {
         //maxes out the time a bubble can be held for at 3 seconds
@@ -164,7 +222,7 @@ public class Bubble_Shooter : MonoBehaviour
          newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection.normalized * launchForce * timer, ForceMode2D.Impulse);
 
         //stop animation;
-        _animate.SetBool("Bubbling", false);
+        _animate.SetBool(currId, false);
         //resets timer
         timer = 0;
         slideCharger.value = 0;
