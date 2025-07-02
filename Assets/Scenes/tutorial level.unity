@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 61686883}
   m_Layer: 0
   m_Name: node_408224ba_edc0_4961_a7b5_e9a64e2e1954
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68632,6 +68632,7 @@ MonoBehaviour:
   timerMax: 0
   slideCharger: {fileID: 0}
   UISlider: {fileID: 0}
+  ids: 000000000000000000000000
 --- !u!114 &8653348242138927137
 MonoBehaviour:
   m_ObjectHideFlags: 0

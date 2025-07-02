@@ -83,10 +83,7 @@ public class CharacterController : MonoBehaviour
             
         }
 
-        if(_pRB.velocity.x == 0 && _pRB.velocity.y == 0)
-        {
-            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
-        }
+       
         
 
         //updating last direction 
@@ -94,6 +91,8 @@ public class CharacterController : MonoBehaviour
         {
             lastPos = currPos;
 
+            //This replace the previous reset to Idle state code with 0 velocity, as that code was conflicting with the animation states. 
+            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         }
 
 
@@ -119,11 +118,10 @@ public class CharacterController : MonoBehaviour
                 }
 
             }
-            _animate.SetBool("moving", true);
+            
         }
         else
         {
-            _animate.SetBool("moving", false);
            
 
         }
@@ -198,14 +196,14 @@ public class CharacterController : MonoBehaviour
 
         //reset enemies states
         EventManager._resetsEn(EnState.Sweeping);
-
-        yield return new WaitForSeconds(2f);
+        DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Dead);
+        yield return new WaitForSeconds(1f);
         daisy.enabled = false;
         yield return new WaitForEndOfFrame();
         EventManager._respawn(daisy);
-
+        yield return new WaitForEndOfFrame();
         _animate.SetBool("Hit", false);
-        DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
+        //DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         yield break;
     }
     #region Redacted InputSystem code
