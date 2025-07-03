@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     IEnumerator _flying(float dist, Vector3 start, Vector3 Target)
     {
         float remains = dist;
-        float bulletSpeed = 3; 
+        float bulletSpeed = 4; 
         //bullet traveling;
         while (remains > 0f)
         {
@@ -27,8 +27,10 @@ public class Bullet : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForEndOfFrame();
-
+        Destroy(gameObject);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
         Destroy(gameObject);
     }
 }

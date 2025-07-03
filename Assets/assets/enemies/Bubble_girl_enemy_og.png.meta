@@ -1,0 +1,817 @@
+fileFormatVersion: 2
+guid: b2f1423bad5358d4ba7c7437f856d780
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_0
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 2467
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31548ebc8aa03084e927e42308f2ba4f
+      internalID: 1864660457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_1
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 563
+        width: 1123
+        height: 1913
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77de1ae695245f144b592c9b0827e634
+      internalID: 1318101254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_2
+      rect:
+        serializedVersion: 2
+        x: 6089
+        y: 572
+        width: 1126
+        height: 1913
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8953d13c064a77f4daae503cdfa3a1a1
+      internalID: -566991572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 2091
+        width: 36
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ad3722409e3024fa2f6059dedef086
+      internalID: -1486306463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_4
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 1757
+        width: 300
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b5812d20f0a184895fa1dc825623bc
+      internalID: -878910560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_5
+      rect:
+        serializedVersion: 2
+        x: 2934
+        y: 1682
+        width: 287
+        height: 712
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df89d783d493b8d449889c8d1ad8ffb2
+      internalID: -989841679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_6
+      rect:
+        serializedVersion: 2
+        x: 3490
+        y: 529
+        width: 1118
+        height: 1896
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76cc3bfd04d010a46b5b3732ec7ec4e9
+      internalID: -874383941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_7
+      rect:
+        serializedVersion: 2
+        x: 5464
+        y: 1603
+        width: 277
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 576f50a70fe372340934cdf5c125cafd
+      internalID: 97038181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_8
+      rect:
+        serializedVersion: 2
+        x: 5735
+        y: 1953
+        width: 31
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5a8c6a7a6b70fc42adc44e2e3a1a79e
+      internalID: 1842231170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_9
+      rect:
+        serializedVersion: 2
+        x: 3079
+        y: 1659
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1012e7f856f0d5748b433a5907aab946
+      internalID: -1004771392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_10
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 844
+        width: 276
+        height: 706
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25825256ff63c124a8052b2f434967a4
+      internalID: -1683625301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_11
+      rect:
+        serializedVersion: 2
+        x: 2909
+        y: 757
+        width: 273
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3840584e0a0cf4646bc218b73dda6e24
+      internalID: -1766696358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_12
+      rect:
+        serializedVersion: 2
+        x: 5413
+        y: 773
+        width: 339
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46f2279a75333b4e8dd91176736555f
+      internalID: -1015859172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_13
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 453
+        width: 68
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b6509aa51fab794ebe6420e172bac5a
+      internalID: 1782353634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_14
+      rect:
+        serializedVersion: 2
+        x: 1683
+        y: 501
+        width: 47
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6659b52bcbdce4899f5621d9be53bc
+      internalID: 1641176681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_15
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 528
+        width: 71
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91cf263e4b55c45408c09da8e55cc5ce
+      internalID: 2022463047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_16
+      rect:
+        serializedVersion: 2
+        x: 3875
+        y: 516
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8bb4effb6abb484eb1742e855ae2b66
+      internalID: 1999281985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_17
+      rect:
+        serializedVersion: 2
+        x: 6243
+        y: 536
+        width: 71
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01637b9d5ffb2bf49918a9f0117309f6
+      internalID: -403671927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_18
+      rect:
+        serializedVersion: 2
+        x: 6370
+        y: 512
+        width: 47
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c907477309a87b4a8b25f2505d9a0fb
+      internalID: 254153491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_19
+      rect:
+        serializedVersion: 2
+        x: 6476
+        y: 465
+        width: 68
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad94e0848b3b1864f9dd822446cf1167
+      internalID: -742612739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_20
+      rect:
+        serializedVersion: 2
+        x: 3985
+        y: 453
+        width: 55
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c54f8493653e3d4d9db4f4f85fb2f34
+      internalID: -256628022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_21
+      rect:
+        serializedVersion: 2
+        x: 4092
+        y: 465
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df947d40f85375048af412dc0cf7488f
+      internalID: 1833467198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_22
+      rect:
+        serializedVersion: 2
+        x: 6302
+        y: 409
+        width: 48
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f177dd638e1654782cd94cf040acf9
+      internalID: -1507405917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_23
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 401
+        width: 35
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e90231e4d7b15a44ba0bff586bbc79ab
+      internalID: 710105266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_24
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 401
+        width: 48
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e62942e1e789ce4084aa389c51b9e5d
+      internalID: 1633358856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_25
+      rect:
+        serializedVersion: 2
+        x: 4155
+        y: 393
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d72aaff27e8f64e41a7b3691ee0d456f
+      internalID: -1427631691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_26
+      rect:
+        serializedVersion: 2
+        x: 6501
+        y: 410
+        width: 35
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ebc7b5d4e143b4b8340721a6edb05b
+      internalID: 1411226995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_27
+      rect:
+        serializedVersion: 2
+        x: 1861
+        y: 318
+        width: 35
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732f95d102d27f440afe68bc04896646
+      internalID: -1801313597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_28
+      rect:
+        serializedVersion: 2
+        x: 4045
+        y: 291
+        width: 58
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128fb42d290c24b4095b2940643d66af
+      internalID: 1748583809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_29
+      rect:
+        serializedVersion: 2
+        x: 6204
+        y: 326
+        width: 35
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee08876295899c64fb0eb31720f098f5
+      internalID: -431436018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_girl_enemy_designs_30
+      rect:
+        serializedVersion: 2
+        x: 3973
+        y: 200
+        width: 43
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66fc707075d292449844c7fa942725cc
+      internalID: -1531950731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Bubble_girl_enemy_designs_0: 1864660457
+      Bubble_girl_enemy_designs_1: 1318101254
+      Bubble_girl_enemy_designs_10: -1683625301
+      Bubble_girl_enemy_designs_11: -1766696358
+      Bubble_girl_enemy_designs_12: -1015859172
+      Bubble_girl_enemy_designs_13: 1782353634
+      Bubble_girl_enemy_designs_14: 1641176681
+      Bubble_girl_enemy_designs_15: 2022463047
+      Bubble_girl_enemy_designs_16: 1999281985
+      Bubble_girl_enemy_designs_17: -403671927
+      Bubble_girl_enemy_designs_18: 254153491
+      Bubble_girl_enemy_designs_19: -742612739
+      Bubble_girl_enemy_designs_2: -566991572
+      Bubble_girl_enemy_designs_20: -256628022
+      Bubble_girl_enemy_designs_21: 1833467198
+      Bubble_girl_enemy_designs_22: -1507405917
+      Bubble_girl_enemy_designs_23: 710105266
+      Bubble_girl_enemy_designs_24: 1633358856
+      Bubble_girl_enemy_designs_25: -1427631691
+      Bubble_girl_enemy_designs_26: 1411226995
+      Bubble_girl_enemy_designs_27: -1801313597
+      Bubble_girl_enemy_designs_28: 1748583809
+      Bubble_girl_enemy_designs_29: -431436018
+      Bubble_girl_enemy_designs_3: -1486306463
+      Bubble_girl_enemy_designs_30: -1531950731
+      Bubble_girl_enemy_designs_4: -878910560
+      Bubble_girl_enemy_designs_5: -989841679
+      Bubble_girl_enemy_designs_6: -874383941
+      Bubble_girl_enemy_designs_7: 97038181
+      Bubble_girl_enemy_designs_8: 1842231170
+      Bubble_girl_enemy_designs_9: -1004771392
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -33,6 +33,7 @@ public class Shield : MonoBehaviour
             if (other.gameObject != daisy3D)
             {
                 daisyStates.ShieldPopped();
+                //Debug.Log(other.transform.name);
                 Debug.Log("popped 3D");
             }
         }
