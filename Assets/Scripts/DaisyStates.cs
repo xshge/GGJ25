@@ -64,6 +64,15 @@ public class DaisyStates : MonoBehaviour
                 }
                 _Danimation.Play("Daisy_Idle");
             }
+
+            if(_shooter.enabled ==  false)
+            {
+                _shooter.enabled = true;
+            }
+        }else if (daisyState == BubbleGirlState.Talking)
+        {
+            _shooter.enabled = false;
+
         }
         else
         {
