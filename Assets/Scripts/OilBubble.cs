@@ -36,7 +36,7 @@ public class OilBubble : MonoBehaviour
 
         //start dialogue through event system.
         //TODO: call function for starting ();
-
+        EventManager.startStory();
         Destroy(gameObject);
     }
 }

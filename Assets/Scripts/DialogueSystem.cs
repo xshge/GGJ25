@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using Yarn.Unity;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -13,27 +14,23 @@ public class DialogueSystem : MonoBehaviour
 
     [SerializeField] private TextAsset _sceneScript;
     [SerializeField] int numberOfSpeaker;
-    
-    public int sizeCount = 1;
+    [SerializeField] DaisyStates _dStateMachine;
     bool released = false;
+    DialogueRunner dialogueRunner;
     Animator _animator;
-    List<Array> _lines = new List<Array>();
 
+    private void Awake()
+    {
+         dialogueRunner = dialogueCanvas.GetComponent<DialogueRunner>();
+    }
     void Start()
     {
-        //TODO:parse the txt into individual lines;
-        string[] data = _sceneScript.text.Split(new string[] { "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
 
-        //TODO: parse each line into a dict, key: Speaker, Value:Line;
-        //so it can be read through once by running through the dictionary entirely.
-
-        data.ToList().ForEach(x =>
-        {
-            string[] _line = x.Split(":", StringSplitOptions.RemoveEmptyEntries);
-            _lines.Add(_line);
-
-        });
-
+        EventManager.StartDialogue += startScene;
+        dialogueRunner.AddCommandHandler(
+            "releaseDaisy",
+            endingScene
+            );
         //Debug.Log("parsed break");
     }
 
@@ -46,14 +43,18 @@ public class DialogueSystem : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         dialogueCanvas.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        dialogueCanvas.SetActive(false);
-        
+        _dStateMachine.ChangeDaisyState(BubbleGirlState.Talking);
       
         released = true;
         //trigger Chekpoint Event;
         EventManager._saving(transform.position);
         yield break;
 
+    }
+
+    void endingScene()
+    {
+        _dStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
+        Debug.Log("reset Daosy");
     }
 }

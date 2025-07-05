@@ -8,6 +8,7 @@ public class EventManager : MonoBehaviour
     public static event Action<Vector3> saveCheckPoint;
     public static event Action<SpriteRenderer> restoreCheckPoint;
     public static event Action<EnState> resetEnemies;
+    public static event Action StartDialogue;
     void Start()
     {
         
@@ -25,4 +26,10 @@ public class EventManager : MonoBehaviour
     {
         resetEnemies?.Invoke(st);
     }
+    
+    public static void startStory()
+    {
+        StartDialogue?.Invoke();
+    }
+
 }

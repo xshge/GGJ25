@@ -169,7 +169,7 @@ public class Bubble_Shooter : MonoBehaviour
             UISlider.transform.localEulerAngles = new Vector3(0, 0, 240);
             UISlider.transform.localPosition= sliderPositions[5];
         }
-        Debug.Log(angle);
+        
         return angle;
     }
 
