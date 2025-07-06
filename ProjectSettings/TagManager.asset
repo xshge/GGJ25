@@ -10,6 +10,7 @@ TagManager:
   - obstacle
   - LevelChange
   - spawn
+  - MusicManager
   - story
   layers:
   - Default
