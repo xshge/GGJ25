@@ -26,6 +26,8 @@ public class CharacterController : MonoBehaviour
 
     public DaisyStates DaisyStateMachine;
 
+    public AudioSource deathSound;
+
     void Start()
     {
         _pRB = GetComponent<Rigidbody>();
@@ -34,6 +36,7 @@ public class CharacterController : MonoBehaviour
         _camera = GameObject.FindGameObjectWithTag("MainCamera");
         ogCamPos = _camera.transform.localPosition;
         Cam = _camera.GetComponent<Camera>();
+        deathSound = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -190,6 +193,7 @@ public class CharacterController : MonoBehaviour
     }
     IEnumerator Dying()
     {
+        deathSound.Play(); 
       
         _pRB.useGravity = false;
         _pRB.isKinematic = true;

@@ -83,7 +83,7 @@ public class DaisyStates : MonoBehaviour
 
     public IEnumerator ChangeBubbleState()
     {
-
+            yield return new WaitForSeconds(.1f);
             shieldState = ShieldStates.Regenerating;
             shield2D.SetActive(false); // will probably also have an animation for the 2D bubble. the 3D bubble is just a collider so she can bump into walls. feel free to scale both accordingly
             shield3D.SetActive(false);

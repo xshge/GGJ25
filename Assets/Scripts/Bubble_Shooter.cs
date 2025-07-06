@@ -31,6 +31,10 @@ public class Bubble_Shooter : MonoBehaviour
     //UI
     public GameObject UISlider;
 
+    //audio
+    public AudioSource chargeSound;
+    public AudioSource launchSound;
+
     //Animator Clips ids
     public int[] ids = new int[3];
     Animator _animate;
@@ -45,6 +49,8 @@ public class Bubble_Shooter : MonoBehaviour
         DaisyStateMachine = GetComponent<DaisyStates>();
         UISlider.SetActive(false);
         slideCharger.maxValue = timerMax;
+        chargeSound = UISlider.GetComponent<AudioSource>();
+        launchSound = spawnerTransform.gameObject.GetComponent<AudioSource>();
         for(int i = 0; i < _paraNames.Length; i++)
         {
             int id = Animator.StringToHash(_paraNames[i]);
@@ -68,10 +74,14 @@ public class Bubble_Shooter : MonoBehaviour
             DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         }
 
+        if(Input.GetMouseButtonDown(0))
+        {
+            UISlider.SetActive(true);
+            chargeSound.Play();
+        }
         //checks if the left mouse button is being held down
         if (Input.GetMouseButton(0))
         {
-            UISlider.SetActive(true);
             DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Shooting);
             timer += Time.deltaTime;
             slideCharger.value = timer;
@@ -216,9 +226,11 @@ public class Bubble_Shooter : MonoBehaviour
 
         //summons the bubble
         GameObject newBubble = Instantiate(bubblePrefab, spawnerTransform.position + directionBasedSpawner, Quaternion.identity, transform);
+        launchSound.Play();
+        chargeSound.Pause();
 
         //launches the bubble
-         newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection.normalized * launchForce * timer, ForceMode2D.Impulse);
+        newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection.normalized * launchForce * timer, ForceMode2D.Impulse);
 
         //stop animation;
         _animate.SetBool(currId, false);
