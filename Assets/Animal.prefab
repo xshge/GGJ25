@@ -338,6 +338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9043485386035376025}
     m_Modifications:
+    - target: {fileID: 1180791518100931017, guid: 06fd0252a4431f545b71c042309571dc, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 282c5986e2102ad41aa99a29b57229bb, type: 3}
     - target: {fileID: 4366990857039343241, guid: 06fd0252a4431f545b71c042309571dc, type: 3}
       propertyPath: m_Name
       value: oil-bubble (1)
