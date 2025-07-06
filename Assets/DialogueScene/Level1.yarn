@@ -2,6 +2,10 @@
 tags:
 ---
 Dolphin: Thank you for saving me!
-Dolphin:there are so many more robots in the waters these days.
+Dolphin: There are so many more robots in the waters these days, , I thought I was not gonna make it. 
+Dolphin: Hey wait…
+Dolphin: Daisy you have got some oil behind you.
+<<enter Story_Basic_En>>
+<<wait  2>>
 <<releaseDaisy>>
 ===

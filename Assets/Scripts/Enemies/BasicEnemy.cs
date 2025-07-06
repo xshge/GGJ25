@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+using Yarn.Unity;
 
 public class BasicEnemy : MonoBehaviour
 {
@@ -15,8 +15,8 @@ public class BasicEnemy : MonoBehaviour
 
     [SerializeField] private Transform _gunpoint;
     [SerializeField] private BasicEn_States states;
-   // [SerializeField] private Bullet bltScrpt;
-    
+    [SerializeField] Transform storyDestination;
+  
     private Coroutine LookCoroutine;
     private Coroutine Sweeping;
   
@@ -114,9 +114,30 @@ public class BasicEnemy : MonoBehaviour
     public void stop()
     {
         StopAllCoroutines();
+        _leftArm.gameObject.SetActive(false);
+        _rigtArm.gameObject.SetActive(false);
+        hurtDeath.clip = deathSound;
+        hurtDeath.Play();
+        ambientIshSound.Stop();
+        
     }
+    [YarnCommand("enter")]   
+    public IEnumerator changePosition()
+    {
+        states.ChangeState(EnState.Talking);
+        float traveltime = 2f;
+        while (traveltime > 0)
+        {
+            float step = 1f * Time.deltaTime;
+            Vector3.MoveTowards(transform.position, storyDestination.position,step);
 
-    //for debug reasone a sphere is drawn. 
+            traveltime -= Time.deltaTime;
+            yield return null;
+
+        }
+       
+        yield break;
+    }
     void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(_origin.position - transform.right * 1, 5f);

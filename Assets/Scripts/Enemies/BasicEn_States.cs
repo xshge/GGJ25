@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EnState
 {
-    Sweeping,Shooting, Death,
+    Sweeping,Shooting, Death,Talking
 }
 
 
