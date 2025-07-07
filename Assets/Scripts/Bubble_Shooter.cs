@@ -67,7 +67,7 @@ public class Bubble_Shooter : MonoBehaviour
         mousePos = GetWorldPositionOnPlane(Input.mousePosition,0);
 
         // Xinyi can you do the input system stuff for me please and thank you
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && (DaisyStateMachine.daisyState != BubbleGirlState.Talking))
         {
             LaunchBubble();
             UISlider.SetActive(false);

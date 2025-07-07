@@ -88,7 +88,7 @@ public class CharacterController : MonoBehaviour
         
 
         //updating last direction 
-        if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        if(( Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) ) && (DaisyStateMachine.daisyState != BubbleGirlState.Talking))
         {
             lastPos = currPos;
 

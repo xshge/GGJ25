@@ -15,26 +15,32 @@ public class BasicEnemy : MonoBehaviour
 
     [SerializeField] private Transform _gunpoint;
     [SerializeField] private BasicEn_States states;
-    [SerializeField] Transform storyDestination;
+    
   
     private Coroutine LookCoroutine;
     private Coroutine Sweeping;
-  
+    private GameObject levelSpawnPoint;
 
+    public AudioSource ambientIshSound;
+    public AudioSource hurtDeath;
+    public AudioClip hurtSound;
+    public AudioClip deathSound;
+  
     void Start()
-    {   
-        //atart the sweeping coroutine;
-        Sweeping = StartCoroutine(sweepDetect());
+    {
+        //Sweeping = StartCoroutine(sweepDetect());
+        states.ChangeState(EnState.Sweeping);
+        //note for later: change this assignment to a level loader;
+        levelSpawnPoint = GameObject.FindWithTag("spawn");
 
     }
     private IEnumerator sweepDetect()
     {
         bool _detectedPlayer = false;
 
-        //detecting the player during the sweeping State (its default state);
-        while (!_detectedPlayer)
-        {   
-            //slerped to be back and forth in a 180 degree angle;
+        //detecting the player;
+        while (!_detectedPlayer && states.currentState == EnState.Sweeping)
+        {
             float rY = Mathf.SmoothStep(0, RotAngleZ, Mathf.PingPong(Time.time * Speed, 1));
             transform.rotation = Quaternion.Euler(0, 0, rY);
 
@@ -65,10 +71,14 @@ public class BasicEnemy : MonoBehaviour
 
     private IEnumerator LookAt(Transform plyr)
     {
-        //Debug.Log("lookinh");
-        float remainingDistance, dist;
-        float bulletSpeed = 3;
+      
+        float remainingDistance;
         float time = 0;
+
+        //determine if the current shooting arm is assigned and wether the same;
+        //determine which arm is closer;
+        Vector3 leftLoc = _leftArm.GetChild(0).position;
+        Vector3 rightLoc = _rigtArm.GetChild(0).position;
 
         //Vector3 direction = plyr.position - transform.position;
         Quaternion initialRotation = transform.rotation;
@@ -122,14 +132,16 @@ public class BasicEnemy : MonoBehaviour
         
     }
     [YarnCommand("enter")]   
-    public IEnumerator changePosition()
+    public IEnumerator changePosition(GameObject player)
     {
         states.ChangeState(EnState.Talking);
-        float traveltime = 2f;
+        Vector3 storyDestination = player.transform.position + new Vector3(-2,-20,22.9f);
+        float traveltime = 5f;
         while (traveltime > 0)
         {
-            float step = 1f * Time.deltaTime;
-            Vector3.MoveTowards(transform.position, storyDestination.position,step);
+            
+            float step = 10f * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, storyDestination,step);
 
             traveltime -= Time.deltaTime;
             yield return null;
@@ -138,6 +150,12 @@ public class BasicEnemy : MonoBehaviour
        
         yield break;
     }
+    [YarnCommand("resetRobot")]
+    public void resetSelf()
+    {
+        states.ChangeState(EnState.Sweeping);
+    }
+    
     void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(_origin.position - transform.right * 1, 5f);

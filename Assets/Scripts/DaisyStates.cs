@@ -72,7 +72,7 @@ public class DaisyStates : MonoBehaviour
         }else if (daisyState == BubbleGirlState.Talking)
         {
             _shooter.enabled = false;
-
+            characterController.enabled = false;
         }
         else
         {

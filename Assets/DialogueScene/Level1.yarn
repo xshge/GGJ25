@@ -5,7 +5,14 @@ Dolphin: Thank you for saving me!
 Dolphin: There are so many more robots in the waters these days, , I thought I was not gonna make it. 
 Dolphin: Hey wait…
 Dolphin: Daisy you have got some oil behind you.
-<<enter Story_Basic_En>>
+<<enter Story_Basic_En MainCamera>>
+<<flipDaisy>>
 <<wait  2>>
+Daisy: Hey! You are not supposed to be leaking oil!
+Robot: I’m not, but it’s not my fault I am. They made me this way.
+Daisy: Who did?
+Robot: Mr. Whorld. He needs more petrol. Or else he will lose all his money.
+Robot: Unfortunately you are standing in his way. 
+<<resetRobot Story_Basic_En>>
 <<releaseDaisy>>
 ===
