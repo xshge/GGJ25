@@ -13,6 +13,7 @@ public class BasicEnemy : MonoBehaviour
     public float RotAngleZ = 45;
     public LayerMask _castLayer;
     public bool isAlive;
+    public Sprite _destroyedSprite;
 
     [SerializeField] private Transform _leftArm, _rigtArm;
     [SerializeField] private BasicEn_States states;
@@ -21,7 +22,12 @@ public class BasicEnemy : MonoBehaviour
     private Transform Target;
     private Coroutine LookCoroutine;
     private Coroutine Sweeping;
-    private GameObject levelSpawnPoint; 
+    private GameObject levelSpawnPoint;
+
+    public AudioSource ambientIshSound;
+    public AudioSource hurtDeath;
+    public AudioClip hurtSound;
+    public AudioClip deathSound;
 
     void Start()
     {
@@ -196,6 +202,11 @@ public class BasicEnemy : MonoBehaviour
     public void stop()
     {
         StopAllCoroutines();
+        _leftArm.gameObject.SetActive(false);
+        _rigtArm.gameObject.SetActive(false);
+        hurtDeath.clip = deathSound;
+        hurtDeath.Play();
+        ambientIshSound.Stop();
         
     }
     void OnDrawGizmos()
