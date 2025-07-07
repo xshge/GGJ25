@@ -5,6 +5,7 @@ using UnityEngine;
 public class loadNextScene : MonoBehaviour
 {
     public Menu menu;
+    private MusicManager musicManager;
     void Start()
     {
         
@@ -14,6 +15,8 @@ public class loadNextScene : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            musicManager = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
+            musicManager.GetComponent<AudioSource>().Play();
             menu.LoadScene(2);
         }
     }
