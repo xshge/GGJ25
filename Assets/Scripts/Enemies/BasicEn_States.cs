@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EnState
 {
-    Sweeping,Shooting, Death,Talking
+    Sweeping,Shooting, Death,Talking, Delayed
 }
 
 
@@ -35,6 +35,15 @@ public class BasicEn_States : MonoBehaviour
         {
             BasicEnemy be = GetComponent<BasicEnemy>();
             StartCoroutine(be.sweepDetect());
+        }else if(currentState == EnState.Delayed)
+        {
+            StartCoroutine(DelayedAttack());
         }
+    }
+
+    IEnumerator DelayedAttack()
+    {
+        yield return new WaitForSeconds(3f);
+        ChangeState(EnState.Sweeping);
     }
 }

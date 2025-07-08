@@ -74,6 +74,7 @@ public class DialogueSystem : MonoBehaviour
     {
         _dStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         _characterController.enabled = true;
+        _characterController.wasInStory = true;
         Debug.Log("reset Daosy");
     }
 

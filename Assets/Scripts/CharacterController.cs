@@ -23,7 +23,7 @@ public class CharacterController : MonoBehaviour
     Camera Cam;
 
     public DaisyStates DaisyStateMachine;
-
+    public bool wasInStory = false;
     public AudioSource deathSound;
 
     void Start()
@@ -127,9 +127,6 @@ public class CharacterController : MonoBehaviour
 
         }
 
-
-        
-        //Debug.Log("mag" + _pRB.velocity.magnitude);
      
      
         
@@ -197,7 +194,15 @@ public class CharacterController : MonoBehaviour
         _pRB.isKinematic = true;
 
         //reset enemies states
-        EventManager._resetsEn(EnState.Sweeping);
+        if (wasInStory)
+        {
+            EventManager._resetsEn(EnState.Delayed);
+        }
+        else
+        {
+            EventManager._resetsEn(EnState.Sweeping);
+        }
+        
         DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Dead);
         yield return new WaitForSeconds(1f);
         daisy.enabled = false;

@@ -58,9 +58,10 @@ public class DaisyStates : MonoBehaviour
         {
             if (_Danimation.GetCurrentAnimatorStateInfo(0).IsName("Daisy_Idle") != true)
             {
-                for (int i = 0; i < _shooter.ids.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
-                    _Danimation.SetBool(_shooter.ids[i], false);
+                    _Danimation.SetBool(_shooter.ids[i,0], false);
+                   // _Danimation.ResetTrigger(_shooter.ids[i, 1]);
                 }
                 _Danimation.Play("Daisy_Idle");
             }
@@ -75,6 +76,7 @@ public class DaisyStates : MonoBehaviour
             characterController.enabled = false;
             //trigger Chekpoint Event;
             EventManager._saving(transform.parent.position);
+
         }
         else
         {

@@ -36,11 +36,13 @@ public class Bubble_Shooter : MonoBehaviour
     public AudioSource launchSound;
 
     //Animator Clips ids
-    public int[] ids = new int[3];
-    Animator _animate;
+    public int[,] ids = new int[3, 2]; 
     
-    string[] _paraNames = { "ChargeU", "ChargeS", "ChargeD" };
+    Animator _animate;
+    string[] _paraNames = { "ChargeU", "ChargeS", "ChargeD", "Ushoot", "Sshoot", "Dshoot" };
     int currId = 0;
+    int trigId = 0;
+    int lastId = 0;
     SpriteRenderer daisy;
     DaisyStates DaisyStateMachine;
     private void Start()
@@ -54,11 +56,20 @@ public class Bubble_Shooter : MonoBehaviour
         for(int i = 0; i < _paraNames.Length; i++)
         {
             int id = Animator.StringToHash(_paraNames[i]);
-            ids[i] = id;
+            if(i <= 2)
+            {
+                ids[i,0] = id;
+
+            }
+            else
+            {
+                ids[i - 3, 1] = id;
+            }
+            
            
         }
         daisy = GetComponent<SpriteRenderer>();
-
+        
     }
     void Update()
     {
@@ -66,16 +77,11 @@ public class Bubble_Shooter : MonoBehaviour
         playerPos = transform.position;
         mousePos = GetWorldPositionOnPlane(Input.mousePosition,0);
 
-        // Xinyi can you do the input system stuff for me please and thank you
-        if (Input.GetMouseButtonUp(0) && (DaisyStateMachine.daisyState != BubbleGirlState.Talking))
-        {
-            LaunchBubble();
-            UISlider.SetActive(false);
-            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
-        }
+    
 
         if(Input.GetMouseButtonDown(0))
         {
+           // _animate.ResetTrigger(trigId);
             UISlider.SetActive(true);
             chargeSound.Play();
         }
@@ -95,9 +101,23 @@ public class Bubble_Shooter : MonoBehaviour
             //charging animation
             if(currId != 0)
             {
+              
+                if (currId != lastId && lastId != 0)
+                {
+                    _animate.SetBool(lastId, false);
+                }
+               
                 _animate.SetBool(currId, true);
+                lastId = currId;
+              
+                
             }
-            
+
+        }else if (Input.GetMouseButtonUp(0) && (DaisyStateMachine.daisyState != BubbleGirlState.Talking))
+        {
+            LaunchBubble();
+            UISlider.SetActive(false);
+            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
         }
     }
 
@@ -188,16 +208,19 @@ public class Bubble_Shooter : MonoBehaviour
         angle = Mathf.Abs(angle);
         if(angle >= 0 && angle < 60)
         {
-            currId = ids[0];
+            currId = ids[0,0];
+            trigId = ids[0, 1];
         }
         else if (angle >= 60 && angle < 120)
         {
-            currId = ids[1];
+            currId = ids[1, 0];
+            trigId = ids[1, 1];
 
         }
         else if(angle >= 120 && angle <= 180)
         {
-            currId = ids[2];
+            currId = ids[2, 0];
+            trigId = ids[2, 1];
         }
     }
     void LaunchBubble()
@@ -210,19 +233,6 @@ public class Bubble_Shooter : MonoBehaviour
 
         CalculateDirection();
 
-        ////adjusting mouse position vector, since the camera's a little messed up
-        //mousePos += new Vector2(-.2f, 5.35f);
-
-        ////calculates the direction the bubble should travel in
-        //bubbleDirection = mousePos - playerPos;
-
-        //Debug.Log("mousePos: " + mousePos);
-
-        //Vector2 bDNormalized = bubbleDirection.normalized;
-
-        //directionBasedSpawner = new Vector3((float)(bDNormalized.x * 4.64), (float)(bDNormalized.y * 4.64), 0);
-
-        //Debug.Log("bubble Direction: " + bubbleDirection);
 
         //summons the bubble
         GameObject newBubble = Instantiate(bubblePrefab, spawnerTransform.position + directionBasedSpawner, Quaternion.identity, transform);
@@ -231,13 +241,11 @@ public class Bubble_Shooter : MonoBehaviour
 
         //launches the bubble
         newBubble.GetComponent<Rigidbody2D>().AddForce(bubbleDirection.normalized * launchForce * timer, ForceMode2D.Impulse);
-
-        //stop animation;
-        _animate.SetBool(currId, false);
         //resets timer
         timer = 0;
         slideCharger.value = 0;
-
+         //shoot with Trigger animation;
+        _animate.SetTrigger(trigId);
         DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
     }
 }
