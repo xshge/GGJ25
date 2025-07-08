@@ -58,8 +58,7 @@ public class DialogueSystem : MonoBehaviour
         _dStateMachine.ChangeDaisyState(BubbleGirlState.Talking);
       
         released = true;
-        //trigger Chekpoint Event;
-        EventManager._saving(transform.position);
+        
         yield break;
 
     }

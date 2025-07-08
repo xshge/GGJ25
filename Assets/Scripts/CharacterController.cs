@@ -186,20 +186,8 @@ public class CharacterController : MonoBehaviour
         if (collision.gameObject.CompareTag("LevelChange"))
         {
             levelChange += 0.25f;
-            Debug.Log("v" + _pRB.velocity);
-        };
-
-    }
-    void DialogueState()
-    {
-        DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Talking);
-
-        _pRB.isKinematic = true;
-        //TODO: set bool for idle animation;
-
-
-
-
+           
+        }
     }
     IEnumerator Dying()
     {

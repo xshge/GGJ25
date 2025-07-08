@@ -73,6 +73,8 @@ public class DaisyStates : MonoBehaviour
         {
             _shooter.enabled = false;
             characterController.enabled = false;
+            //trigger Chekpoint Event;
+            EventManager._saving(transform.parent.position);
         }
         else
         {
