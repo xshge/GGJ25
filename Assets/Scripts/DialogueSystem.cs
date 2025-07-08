@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -17,7 +17,9 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] int numberOfSpeaker;
     [SerializeField] DaisyStates _dStateMachine;
     [SerializeField] CharacterController _characterController;
+    [SerializeField]Sprite[] _backings = new Sprite[2];
     TMP_Text characterName;
+    Image textBackground;
     AudioSource _audioSource;
     bool released = false;
     DialogueRunner dialogueRunner;
@@ -28,6 +30,7 @@ public class DialogueSystem : MonoBehaviour
          dialogueRunner = dialogueCanvas.GetComponent<DialogueRunner>();
         _audioSource = GetComponent<AudioSource>();
         characterName = dialogueRunner.transform.Find("Canvas/Line View/Character Name").GetComponent<TMP_Text>();
+        textBackground = dialogueRunner.transform.Find("Canvas/Line View/Background").GetComponent<Image>();
     }
     void Start()
     {
@@ -41,8 +44,12 @@ public class DialogueSystem : MonoBehaviour
            "flipDaisy",
            facing
            );
+        dialogueRunner.AddCommandHandler(
+           "swapBubble",
+           ToggleBackground
+           );
 
-       
+
         //Debug.Log("parsed break");
     }
 
@@ -77,7 +84,18 @@ public class DialogueSystem : MonoBehaviour
         _characterController.wasInStory = true;
         Debug.Log("reset Daosy");
     }
+    void ToggleBackground()
+    {
+        if(characterName.text == "Robot")
+        {
+            textBackground.sprite = _backings[1];
 
+        }
+        else
+        {
+            textBackground.sprite = _backings[0];
+        }
+    }
     public void animalTalk()
     {
         switch (characterName.text)

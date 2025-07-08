@@ -7,10 +7,14 @@ Dolphin: Hey wait…
 Dolphin: Daisy you have got some oil behind you.
 <<enter Story_Basic_En MainCamera>>
 <<flipDaisy>>
-<<wait  2>>
+<<wait  1>>
+
 Daisy: Hey! You are not supposed to be leaking oil!
+<<swapBubble>>
 Robot: I’m not, but it’s not my fault I am. They made me this way.
+<<swapBubble>>
 Daisy: Who did?
+<<swapBubble>>
 Robot: Mr. Whorld. He needs more petrol. Or else he will lose all his money.
 Robot: Unfortunately you are standing in his way. 
 <<resetRobot Story_Basic_En>>

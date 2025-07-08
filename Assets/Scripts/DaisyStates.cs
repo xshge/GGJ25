@@ -60,8 +60,8 @@ public class DaisyStates : MonoBehaviour
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    _Danimation.SetBool(_shooter.ids[i,0], false);
-                   // _Danimation.ResetTrigger(_shooter.ids[i, 1]);
+                    _Danimation.SetBool(_shooter.ids[i, 0], false);
+
                 }
                 _Danimation.Play("Daisy_Idle");
             }
@@ -74,6 +74,7 @@ public class DaisyStates : MonoBehaviour
         {
             _shooter.enabled = false;
             characterController.enabled = false;
+            resetDaisyAnimation();
             //trigger Chekpoint Event;
             EventManager._saving(transform.parent.position);
 
@@ -85,6 +86,19 @@ public class DaisyStates : MonoBehaviour
         //can we call the events somewhere here?
     }
 
+    void resetDaisyAnimation()
+    {
+        if (_Danimation.GetCurrentAnimatorStateInfo(0).IsName("Daisy_Idle") != true)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                _Danimation.SetBool(_shooter.ids[i, 0], false);
+                _Danimation.SetBool(_shooter.ids[i, 0], false);
+
+            }
+            _Danimation.Play("Daisy_Idle");
+        }
+    }
 
     #region ShieldStuff
 

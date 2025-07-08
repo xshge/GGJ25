@@ -117,7 +117,9 @@ public class Bubble_Shooter : MonoBehaviour
         {
             LaunchBubble();
             UISlider.SetActive(false);
-            DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
+            //DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
+            //Invoke("Resetshootanimatebool", 0.5f);
+            //Resetshootanimatebool();
         }
     }
 
@@ -245,7 +247,21 @@ public class Bubble_Shooter : MonoBehaviour
         timer = 0;
         slideCharger.value = 0;
          //shoot with Trigger animation;
-        _animate.SetTrigger(trigId);
+        _animate.SetBool(trigId,true);
+        
+        
+       
+    }
+
+    private void Resetshootanimatebool()
+    {   
+
+        for (int i = 0; i < 3; i++)
+        {
+           
+            _animate.SetBool(ids[i, 1],false);
+        }
+
         DaisyStateMachine.ChangeDaisyState(BubbleGirlState.Idle);
     }
 }
