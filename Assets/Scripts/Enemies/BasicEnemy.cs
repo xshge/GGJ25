@@ -24,17 +24,21 @@ public class BasicEnemy : MonoBehaviour
     private Coroutine LookCoroutine;
     private Coroutine Sweeping;
     private GameObject levelSpawnPoint;
+   
 
     public AudioSource ambientIshSound;
     public AudioSource hurtDeath;
     public AudioClip hurtSound;
     public AudioClip deathSound;
+    public ParticleSystem oilLeaks;
     public static float xOffset = 3;
+
     void Start()
     {
         states.ChangeState(EnState.Sweeping);
         //note for later: change this assignment to a level loader;
         levelSpawnPoint = GameObject.FindWithTag("spawn");
+        
 
     }
     public IEnumerator sweepDetect()
@@ -207,6 +211,13 @@ public class BasicEnemy : MonoBehaviour
         hurtDeath.clip = deathSound;
         hurtDeath.Play();
         ambientIshSound.Stop();
+        oilLeaks.Pause();
+
+        if(transform.name == "EndingBot")
+        {
+            Ending end = GetComponent<Ending>();
+            end.enabled = true; 
+        }
 
     }
     [YarnCommand("enter")]   
@@ -222,12 +233,12 @@ public class BasicEnemy : MonoBehaviour
         {
             xOffset = xOffset * -1;
         }
-        Vector3 storyDestination = player.transform.position + new Vector3(xOffset,-2,22.9f);
+        Vector3 storyDestination = player.transform.position + new Vector3(xOffset,4,22.9f);
         float traveltime = 5f;
         while (traveltime > 0)
         {
             
-            float step = 15f * Time.deltaTime;
+            float step = 25f * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, storyDestination,step);
 
             traveltime -= Time.deltaTime;
