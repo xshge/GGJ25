@@ -27,10 +27,15 @@ public class DialogueSystem : MonoBehaviour
 
     private void Awake()
     {
-         dialogueRunner = dialogueCanvas.GetComponent<DialogueRunner>();
+        if (transform.CompareTag("talkingAnimal"))
+        {
+            dialogueRunner = dialogueCanvas.GetComponent<DialogueRunner>();
+            characterName = dialogueRunner.transform.Find("Canvas/Line View/Character Name").GetComponent<TMP_Text>();
+            textBackground = dialogueRunner.transform.Find("Canvas/Line View/Background").GetComponent<Image>();
+        }
+         
         _audioSource = GetComponent<AudioSource>();
-        characterName = dialogueRunner.transform.Find("Canvas/Line View/Character Name").GetComponent<TMP_Text>();
-        textBackground = dialogueRunner.transform.Find("Canvas/Line View/Background").GetComponent<Image>();
+       
     }
     void Start()
     {

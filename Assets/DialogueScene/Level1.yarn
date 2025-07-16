@@ -8,8 +8,6 @@ Dolphin: Hey wait…
 <<enter Story_Basic_En MainCamera>>
 Dolphin: Daisy you have got some oil behind you.
 <<flipDaisy>>
-<<wait  1>>
-
 Daisy: Hey! You are not supposed to be leaking oil!
 <<swapBubble>>
 Robot: I’m not, but it’s not my fault I am. They made me this way.

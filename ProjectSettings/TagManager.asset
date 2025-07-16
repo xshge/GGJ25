@@ -12,6 +12,7 @@ TagManager:
   - spawn
   - MusicManager
   - story
+  - talkingAnimal
   layers:
   - Default
   - TransparentFX

@@ -115,7 +115,7 @@ public class DaisyStates : MonoBehaviour
             shield2D.SetActive(false); // will probably also have an animation for the 2D bubble. the 3D bubble is just a collider so she can bump into walls. feel free to scale both accordingly
             shield3D.SetActive(false);
 
-            Debug.Log("popping da shield");
+            //Debug.Log("popping da shield");
 
             yield return new WaitForSeconds(3);
 
@@ -124,7 +124,7 @@ public class DaisyStates : MonoBehaviour
         shieldState = ShieldStates.Active;
 
 
-        Debug.Log("setting shields active");
+        //Debug.Log("setting shields active");
     }
     #endregion
 }

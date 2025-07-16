@@ -38,7 +38,7 @@ public class Shield : MonoBehaviour
 
                 daisyStates.ShieldPopped();
                 //Debug.Log(other.transform.name);
-                Debug.Log("popped 3D");
+                
             }
         }
     }
@@ -53,7 +53,7 @@ public class Shield : MonoBehaviour
                 shieldPopSound.Play();
                 daisyStates.ShieldPopped();
 
-                Debug.Log("popped 2D");
+                
             }
         }
     }
